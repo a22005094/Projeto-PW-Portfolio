@@ -1,0 +1,33 @@
+<!-- PÁGINA DE LAYOUT ("master") PARA TODAS AS PÁGINAS DA WebApp -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block page-title-head %}{% endblock %}</title>
+
+    <!-- para importar o tipo de letra Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="../../static/portfolio/css/styles.css">
+</head>
+<body>
+<header>
+    <h2 id="page-title">{% block page-title-body %}{% endblock %}</h2>
+    <nav>
+        <!-- TODO atribuir destinos aos links. Exemplo: href="{% url 'portfolio:home' %}"-->
+        <a href="">Home</a>
+        <a href="">Apresentação</a>
+        <a href="">Competências</a>
+        <a href="">Formação</a>
+        <a href="">Projetos</a>
+        <a href="">Contactos</a>
+    </nav>
+</header>
+<main>
+    {% block main %}
+    {% endblock %}
+</main>
+<footer>ULHT, 2022</footer>
+</body>
+</html>
