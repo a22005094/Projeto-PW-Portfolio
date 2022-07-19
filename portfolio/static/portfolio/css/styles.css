@@ -1,5 +1,18 @@
-/* Classes CSS de base, tomando por inspiração os exemplos
-   fornecidos pelos docentes no enunciado do Lab8 */
+/* Classes CSS a usar no projeto.
+    Tomei a liberdade de usar como inspiração e como base os exemplos fornecidos pelos docentes no enunciado do Lab8,
+    por ter considerado interessante e por ter a aplicação de boas práticas em CSS.
+*/
+
+
+/*
+ ======= REMOVIDOS =======
+    header div {
+        font-size: 2em;
+        padding: 1em;
+    }
+
+ =========================
+*/
 
 * {
     padding: 0;
@@ -8,8 +21,40 @@
     font-family: 'Roboto', sans-serif;
 }
 
+/* CONFIGURAÇÃO CSS GRID NA PÁGINA */
+.grid-container {
+    /* colocar o container da grid a ocupar a totalidade da viewport (contem toda a página em si) */
+    width: 100vw;
+    height: 100vh;
+
+    /* configurar CSS grid */
+    display: grid;
+    grid-template-rows: 10vh 3fr 5vh;
+    grid-template-columns: auto auto auto;
+    grid-template-areas: 'headerGrid headerGrid headerGrid'
+                         'mainGrid mainGrid mainGrid'
+                         'footerGrid footerGrid footerGrid';
+    /*
+    grid-gap: 10px;
+    padding: 10px;
+    */
+}
+
+.layout-header {
+    grid-area: headerGrid;
+}
+
+.layout-main {
+    grid-area: mainGrid;
+}
+
+.layout-footer {
+    grid-area: footerGrid;
+}
+
+/* ******************************* */
+
 header {
-    height: 10vh;
     background: white;
     top: 0;
     border: 1px solid black;
@@ -20,18 +65,10 @@ header {
     align-items: center;
 }
 
-/*
-    header div {
-        font-size: 2em;
-        padding: 1em;
-    }
-*/
-
 header nav {
     display: flex;
     justify-content: flex-end;
 }
-
 
 nav a {
     padding: 0 1em;
@@ -41,14 +78,12 @@ nav a {
 }
 
 main {
-    height: 85vh;
-    background-color: grey;
+    background-color: silver;
     padding: 4em 4em;
 }
 
 footer {
     border: 1px solid black;
-    height: 5vh;
     display: flex;
     justify-content: flex-end;
     padding: 0 2vw;
@@ -62,3 +97,13 @@ footer {
     margin-left: 5vw;
 }
 
+.text-aligned-center {
+    /* estilização do tipo de letra */
+    font-size: 4em;
+    color: black;
+    /* alinhar ao centro */
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: start;
+    align-items: center;
+}

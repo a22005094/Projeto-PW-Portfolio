@@ -4,30 +4,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block page-title-head %}{% endblock %}</title>
 
-    <!-- para importar o tipo de letra Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+
+    <!-- ***** CSS ***** -->
     {% load static %}
-    <link rel="stylesheet" href="../../static/portfolio/css/styles.css">
+    <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+
+    <!-- ***** Outras Importações ***** -->
+    <!-- TipoLetra Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+
+    <!-- Para inserir estilização CSS (<style>) específica em cada página (se necessario) -->
+    {% block css-block %}
+    {% endblock %}
+
+    <!-- Para inserir blocos javascript (<script>) especificos em cada página (se necessario) -->
+    {% block script-block %}
+    {% endblock %}
 </head>
 <body>
-<header>
-    <h2 id="page-title">{% block page-title-body %}{% endblock %}</h2>
-    <nav>
-        <!-- TODO atribuir destinos aos links. Exemplo: href="{% url 'portfolio:home' %}"-->
-        <a href="">Home</a>
-        <a href="">Apresentação</a>
-        <a href="">Competências</a>
-        <a href="">Formação</a>
-        <a href="">Projetos</a>
-        <a href="">Contactos</a>
-    </nav>
-</header>
-<main>
-    {% block main %}
-    {% endblock %}
-</main>
-<footer>ULHT, 2022</footer>
+<div class="grid-container">
+    <header class="layout-header">
+        <h2 id="page-title">{% block page-title-body %}{% endblock %}</h2>
+        <nav>
+            <a href="{% url 'portfolio:home' %}">Home</a>
+            <a href="{% url 'portfolio:apresentacao' %}">Apresentação</a>
+            <a href="{% url 'portfolio:competencias' %}">Competências</a>
+            <a href="{% url 'portfolio:formacao' %}">Formação</a>
+            <a href="{% url 'portfolio:projetos' %}">Projetos</a>
+            <a href="{% url 'portfolio:contactos' %}">Contactos</a>
+        </nav>
+    </header>
+    <main class="layout-main">
+        {% block main %}
+        {% endblock %}
+    </main>
+    <footer class="layout-footer">ULHT, 2022</footer>
+</div>
 </body>
 </html>

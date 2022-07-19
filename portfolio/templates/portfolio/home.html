@@ -1,8 +1,51 @@
 {% extends 'portfolio/layout.html' %}
 
-{% block page-title-head %}Rui's portfolio{% endblock %}
+{% block page-title-head %}Rui's Portfolio{% endblock %}
 {% block page-title-body %}Portfolio{% endblock %}
 
+{% block css-block %}
+    <style>
+        div > main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    <script>
+        /* $(document).ready(function () {
+                $("button").click(function () {
+                    $("#div1").fadeToggle(1000);
+                    $("#div2").fadeIn("slow");
+                    $("#div3").fadeIn(3000);
+                });
+            });
+        */
+    </script>
+{% endblock %}
+
+
 {% block main %}
-(conteudo)
+    <div class="text-aligned-center">
+        <p>Olá, {{ greetings }}! 👋</p>
+        <p>Bem-vindos ao meu Portfolio.</p>
+    </div>
+
+
+    <!-- TODO "Insira em portfolio/static/portfolio/images uma imagem a seu gosto, com uma largura máxima de 200px" -->
+    <!-- {# load static #} <img src="{# static 'portfolio/images/image.png' #}"> -->
+    <!--
+        <div id="div1">
+        <h1>Exemplo1</h1>
+        </div>
+        <div id="div2">
+            <h1>Exemplo2</h1>
+        </div>
+        <div id="div3">
+            <h1>Exemplo3</h1>
+        </div>
+        <button>Click me!</button>
+    -->
 {% endblock %}

@@ -1,12 +1,21 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+import datetime
 
-
-# Create your views here.
-# TODO views.py
 
 def home_view(request):
-    return render(request, 'portfolio/home.html')
+    curr_time = datetime.datetime.now()
+
+    if 6 <= curr_time.hour <= 12:
+        greet = "bom dia"
+    elif 13 <= curr_time.hour <= 19:
+        greet = "boa tarde"
+    else:
+        greet = "boa noite"
+
+    return render(request, 'portfolio/home.html', {
+        'current_time': curr_time,
+        'greetings': greet
+    })
 
 
 def apresentacao_view(request):
@@ -23,3 +32,7 @@ def formacao_view(request):
 
 def projetos_view(request):
     return render(request, 'portfolio/projetos.html')
+
+
+def contactos_view(request):
+    return render(request, 'portfolio/contactos.html')
