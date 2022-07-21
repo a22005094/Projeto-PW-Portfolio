@@ -1,0 +1,50 @@
+<div class="container-cards-no-image">
+    <div>
+        <h2 style="text-align: center">{{ unidCurricular.nome }}</h2>
+        <hr>
+        <br>
+        <p><span>• Ano:</span> {{ unidCurricular.ano }}</p>
+        <p><span>• Semestre:</span> {{ unidCurricular.semestre }}</p>
+        <p><span>• ECTS:</span> {{ unidCurricular.ects }}</p>
+        <p><span>• Ano Letivo frequentado:</span> {{ unidCurricular.ano_letivo_freq }}</p>
+        <!-- TODO test if null -->
+        <p><span>• Tópicos:</span> {{ unidCurricular.topicos }}</p>
+        <p>
+            <span>• Ranking:</span>
+            {% if unidCurricular.ranking == 1 %} ⭐
+            {% elif unidCurricular.ranking == 2 %} ⭐⭐
+            {% elif unidCurricular.ranking == 3 %} ⭐⭐⭐
+            {% elif unidCurricular.ranking == 4 %} ⭐⭐⭐⭐
+            {% elif unidCurricular.ranking == 5 %} ⭐⭐⭐⭐⭐
+            {% endif %}
+        </p>
+        <p><span>• Meus Professores:</span></p>
+        <ul>
+            <!-- Se o Docente tem link da Univ. Lusofona, coloca o seu nome como um link direto.
+                 Senao, coloca o nome do Docente apenas como Texto Simples -->
+            {% for docente in unidCurricular.professores.all %}
+                <li>
+                    {% if docente.link_lusofona %}
+                        <a href="{{ docente.link_lusofona }}">{{ docente.nome }}</a>
+                    {% else %}
+                        {{ docente.nome }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        <!-- Só apresenta este item se existir link para a página da cadeira no site da Lusófona -->
+        {% if unidCurricular.link_pagina %}
+            <p><span>• <a href="{{ unidCurricular.link_pagina }}">Link Lusófona</a></span></p>
+        {% endif %}
+        <p>
+            <span>• Concluída:</span>
+            {% if unidCurricular.feita %}
+                ✅
+            {% else %}
+                ❌
+            {% endif %}
+        </p>
+    </div>
+</div>
+
+<!-- TODO :: boolean field :: feita? -->

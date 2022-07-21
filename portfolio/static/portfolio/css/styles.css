@@ -3,17 +3,7 @@
     por ter considerado interessante e por ter a aplicação de boas práticas em CSS.
 */
 
-
-/*
- ======= REMOVIDOS =======
-    header div {
-        font-size: 2em;
-        padding: 1em;
-    }
-
- =========================
-*/
-
+/* Configurações e boas práticas a aplicar por toda a página */
 * {
     padding: 0;
     margin: 0;
@@ -21,7 +11,25 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/* CONFIGURAÇÃO CSS GRID NA PÁGINA */
+/* Todos os links em hover devem tomar a cor selecionada */
+a:hover {
+    color: orangered;
+}
+
+a:visited {
+    color: darksalmon;
+}
+
+nav a:active {
+    color: darkgreen;
+}
+
+nav a:hover {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* *** CONFIGURAÇÃO CSS GRID NA PÁGINA *** */
 .grid-container {
     /* colocar o container da grid a ocupar a totalidade da viewport (contem toda a página em si) */
     width: 100vw;
@@ -52,8 +60,9 @@
     grid-area: footerGrid;
 }
 
-/* ******************************* */
+/* ********** Fim config CSS grid ********** */
 
+/* ****** Configurações secções do Template ****** */
 header {
     background: white;
     top: 0;
@@ -74,7 +83,7 @@ nav a {
     padding: 0 1em;
     text-decoration: none;
     font-size: 1rem;
-    color: lightgray;
+    color: orange;
 }
 
 main {
@@ -90,20 +99,64 @@ footer {
     align-items: center;
 }
 
-/* CONFIGURACOES ESPECIFICAS */
+/* CONFIGURACOES MAIS ESPECIFICAS + CSS's personalizados */
 
 #page-title {
-    /* coloca o titulo um pouco mais à frente, para nao ficar totalmente encostado à esquerda */
-    margin-left: 5vw;
+    /* coloca o titulo ligeiramente mais à frente, para nao ficar totalmente encostado à esquerda */
+    margin-left: 3vw;
 }
 
 .text-aligned-center {
-    /* estilização do tipo de letra */
+    /* estilização do tipo de letra*/
     font-size: 4em;
     color: black;
-    /* alinhar ao centro */
+    /* configurar alinhamento ao centro */
     display: flex;
     flex-flow: column wrap;
     justify-content: start;
     align-items: center;
+}
+
+/* CARTÕES PRETTY PARA LISTAGENS (ex.: página Licenciatura) */
+/* Créditos no CSS-base: https://codepen.io/LucioStuder/pen/MWrKXdy. Obrigado aos Professores pelas demos @CodePen! */
+.container-cards-no-image {
+    /*background-color: rgb(238, 248, 248);*/
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 25px 100px;
+}
+
+.container-cards-no-image div {
+    /* float: left; */
+    width: 20vw;
+    /* height: 150px; ~> deixar a página decidir a altura dos cartões */
+    padding: 25px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px; /* arredonda os cantos */
+    box-shadow: 5px 5px 15px grey;
+}
+
+/* configura cada paragrafo em si (cada linha) nos cartoes */
+.container-cards-no-image div p {
+    margin: 10px;
+}
+
+/* Configura os titulos nos cartoes */
+.container-cards-no-image div span {
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Configura as listas nestes cartoes (o que aqui se pretende é avançar mais para a frente o texto) */
+.container-cards-no-image div ul {
+    display: table;
+    margin: auto;
+    list-style-type: square;
+}
+
+.container-cards-no-image div ul:hover {
+    display: table;
+    margin: auto;
 }

@@ -5,18 +5,127 @@
 {% block page-title-body %}Licenciatura{% endblock %}
 
 {% block css-block %}
-    <!-- definir <style> aqui se necessário -->
+    <style>
+        #main-licenciatura {
+            display: flex;
+            flex-flow: column wrap;
+        }
+
+        #main-licenciatura h1[id^=caixa-ano] {
+            color: black;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        #caixa-ano-1 {
+            background-color: rgb(153, 204, 255);
+        }
+
+        #caixa-ano-2 {
+            background-color: rgb(171, 255, 190);
+        }
+
+        #caixa-ano-3 {
+            background-color: rgb(255, 127, 127);
+        }
+
+        h2 {
+            text-align: center;
+            text-decoration: underline;
+        }
+    </style>
 {% endblock %}
 
 {% block script-block %}
-    <!-- definir <script> aqui se necessário -->
+    {% load static %}
+    <script>
+        $(document).ready(function () {
+            /* Esconder elementos ao clicar na categoria em si */
+            // ano1
+            $("#caixa-ano-1").click(() => $("#ano-1-content").fadeToggle(300));
+            $("#ano-1-semestre-1").click(() => $("#ano-1-semestre-1-content").fadeToggle(300));
+            $("#ano-1-semestre-2").click(() => $("#ano-1-semestre-2-content").fadeToggle(300));
+            // ano2
+            $("#caixa-ano-2").click(() => $("#ano-2-content").fadeToggle(300));
+            $("#ano-2-semestre-1").click(() => $("#ano-2-semestre-1-content").fadeToggle(300));
+            $("#ano-2-semestre-2").click(() => $("#ano-2-semestre-2-content").fadeToggle(300));
+            // ano3
+            $("#caixa-ano-3").click(() => $("#ano-3-content").fadeToggle(300));
+            $("#ano-3-semestre-1").click(() => $("#ano-3-semestre-1-content").fadeToggle(300));
+            $("#ano-3-semestre-2").click(() => $("#ano-3-semestre-2-content").fadeToggle(300));
+        });
+    </script>
 {% endblock %}
 
 {% block main %}
-    <!--
-    <div class="text-aligned-center">
-        <p>Bem-vindos!</p>
-    </div>
+    <!-- TODO :: Considerar:
+           - 2 CBs que, ao selecionar, em Javascript filtra por Semestre/Ano
+           - Adicionar às Unidades Curriculares o status (TBD / Done) => usar Booleano, "done", or something...
     -->
 
+    <!-- Listagem das Unidades Curriculares (inspirado em: https://codepen.io/LucioStuder/pen/MWrKXdy. Obrigado!) -->
+    <!-- APRESENTAR: nome, ano, semestre, ECTS, ano letivo frequentado, topicos abordados,
+         ranking de 1 a 5 estrelas (indicando se gostou ou não), professores (da classe Pessoa
+         com campos nome e link para a sua pagina da lusofona e no linkedin), link para página da cadeira
+         (se existir), lista de projetos realizados (TODO => classe projeto)
+         *** BÓNUS *** => Inclui informação se já concluí a UnidadeCurricular.
+    -->
+
+    <main id="main-licenciatura">
+        <div>
+            <h1 id="caixa-ano-1">1º Ano</h1>
+            <div id="ano-1-content">
+                <h2 id="ano-1-semestre-1">1º Semestre</h2>
+                <div id="ano-1-semestre-1-content">
+                    {% for cadeiraA1S1 in a1s1 %}
+                        {% include 'portfolio/helpers/card_unidade_curricular.html' with unidCurricular=cadeiraA1S1 %}
+                    {% endfor %}
+                </div>
+                <hr>
+                <h2 id="ano-1-semestre-2">2º Semestre</h2>
+                <div id="ano-1-semestre-2-content">
+                    {% for cadeiraA1S2 in a1s2 %}
+                        {% include 'portfolio/helpers/card_unidade_curricular.html' with unidCurricular=cadeiraA1S2 %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1 id="caixa-ano-2">2º Ano</h1>
+            <div id="ano-2-content">
+                <h2 id="ano-2-semestre-1">1º Semestre</h2>
+                <div id="ano-2-semestre-1-content">
+                    {% for cadeiraA2S1 in a2s1 %}
+                        {% include 'portfolio/helpers/card_unidade_curricular.html' with unidCurricular=cadeiraA2S1 %}
+                    {% endfor %}
+                </div>
+                <hr>
+                <h2 id="ano-2-semestre-2">2º Semestre</h2>
+                <div id="ano-2-semestre-2-content">
+                    {% for cadeiraA2S2 in a2s2 %}
+                        {% include 'portfolio/helpers/card_unidade_curricular.html' with unidCurricular=cadeiraA2S2 %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1 id="caixa-ano-3">3º Ano</h1>
+            <div id="ano-3-content">
+                <h2 id="ano-3-semestre-1">1º Semestre</h2>
+                <div id="ano-3-semestre-1-content">
+                    {% for cadeiraA3S1 in a3s1 %}
+                        {% include 'portfolio/helpers/card_unidade_curricular.html' with unidCurricular=cadeiraA3S1 %}
+                    {% endfor %}
+                </div>
+                <hr>
+                <h2 id="ano-3-semestre-2">2º Semestre</h2>
+                <div id="ano-3-semestre-2-content">
+                    {% for cadeiraA3S2 in a3s2 %}
+                        {% include 'portfolio/helpers/card_unidade_curricular.html' with unidCurricular=cadeiraA3S2 %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </main>
 {% endblock %}

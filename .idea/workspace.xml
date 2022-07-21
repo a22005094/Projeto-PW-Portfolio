@@ -3,13 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Estrutura-base de algumas páginas (ainda sujeito a novas modificações)">
       <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/scripts/jquery-3.6.0.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/__base-page__.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/contactos.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/helpers/card_unidade_curricular.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/static/portfolio/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/static/portfolio/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/views.py" afterDir="false" />
     </list>
@@ -25,6 +27,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -44,6 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
     "Notification.DoNotAsk-Database detector": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -58,6 +62,7 @@
       <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio" />
       <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\static\portfolio" />
     </key>
   </component>
@@ -152,7 +157,10 @@
       <workItem from="1658069545204" duration="4990000" />
       <workItem from="1658170265102" duration="1928000" />
       <workItem from="1658172218801" duration="8976000" />
-      <workItem from="1658255091500" duration="1734000" />
+      <workItem from="1658255091500" duration="3298000" />
+      <workItem from="1658265196610" duration="5749000" />
+      <workItem from="1658343322613" duration="13230000" />
+      <workItem from="1658429190599" duration="3639000" />
     </task>
     <task id="LOCAL-00001" summary="adicionar a estrutura-base do projeto">
       <created>1658004280625</created>
@@ -161,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658004280625</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Estrutura-base de algumas páginas (ainda sujeito a novas modificações)">
+      <created>1658258697400</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658258697400</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

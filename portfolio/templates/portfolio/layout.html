@@ -15,6 +15,8 @@
     <!-- ***** Outras Importações ***** -->
     <!-- TipoLetra Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+    <!-- Importar JQuery (PARA TESTES) -->
+    <script src="{% static 'portfolio/scripts/jquery-3.6.0.js' %}"></script>
 
     <!-- Para inserir estilização CSS (<style>) específica em cada página (se necessario) -->
     {% block css-block %}
@@ -33,6 +35,7 @@
             <a href="{% url 'portfolio:apresentacao' %}">Apresentação</a>
             <a href="{% url 'portfolio:competencias' %}">Competências</a>
             <a href="{% url 'portfolio:formacao' %}">Formação</a>
+            <a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a>
             <a href="{% url 'portfolio:projetos' %}">Projetos</a>
             <a href="{% url 'portfolio:contactos' %}">Contactos</a>
         </nav>
