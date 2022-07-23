@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Estrutura-base de algumas páginas (ainda sujeito a novas modificações)">
-      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/scripts/jquery-3.6.0.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/helpers/card_unidade_curricular.html" afterDir="false" />
+    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Evolucao na construção das classes (Models); progresso na pág. Licenciatura">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/static/portfolio/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/static/portfolio/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/static/portfolio/scripts/jquery-3.6.0.js" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/static/portfolio/scripts/jquery-3.6.0.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/views.py" afterDir="false" />
     </list>
@@ -34,6 +32,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/portfolio/static/portfolio/scripts/jquery-3.6.0.js" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -45,18 +46,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
-    "Notification.DoNotAsk-Database detector": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/RJ/Desktop/Ano2Sem2/Projeto_PW_a22005094/portfolio/templates/portfolio",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/RJ/Desktop/Ano2Sem2/Projeto_PW_a22005094/portfolio/templates/portfolio&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio" />
@@ -160,7 +161,10 @@
       <workItem from="1658255091500" duration="3298000" />
       <workItem from="1658265196610" duration="5749000" />
       <workItem from="1658343322613" duration="13230000" />
-      <workItem from="1658429190599" duration="3639000" />
+      <workItem from="1658429190599" duration="3740000" />
+      <workItem from="1658437045107" duration="2229000" />
+      <workItem from="1658439391475" duration="4758000" />
+      <workItem from="1658584247635" duration="4542000" />
     </task>
     <task id="LOCAL-00001" summary="adicionar a estrutura-base do projeto">
       <created>1658004280625</created>
@@ -176,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658258697400</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Evolucao na construção das classes (Models); progresso na pág. Licenciatura">
+      <created>1658437000316</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658437000316</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +207,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adicionar a estrutura-base do projeto" />
     <MESSAGE value="Estrutura-base de algumas páginas (ainda sujeito a novas modificações)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Estrutura-base de algumas páginas (ainda sujeito a novas modificações)" />
+    <MESSAGE value="Evolucao na construção das classes (Models); progresso na pág. Licenciatura" />
+    <option name="LAST_COMMIT_MESSAGE" value="Evolucao na construção das classes (Models); progresso na pág. Licenciatura" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Projeto_PW_a22005094$main.coverage" NAME="main Coverage Results" MODIFIED="1658001529239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

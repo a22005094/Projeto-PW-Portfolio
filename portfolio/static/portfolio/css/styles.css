@@ -108,7 +108,7 @@ footer {
 
 .text-aligned-center {
     /* estilização do tipo de letra*/
-    font-size: 4em;
+    font-size: 3.5em;
     color: black;
     /* configurar alinhamento ao centro */
     display: flex;
