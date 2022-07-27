@@ -1,0 +1,100 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Projetos{% endblock %}
+{% block page-title-body %}Projetos{% endblock %}
+
+{% block css-block %}
+    <style>
+        /* ******* CSS a aplicar sobre os Cards a utilizar na página ******* */
+
+        /* acrescenta um pouco de espacamento entre o header e os conteudos desta pagina */
+        main {
+            padding: 4em;
+            background-color: #edf8ff;
+        }
+
+        .container-projetos {
+            background-color: rgba(255, 255, 255, 40%);
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-bottom: 4vh;
+            min-width: 70vw;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilização dos Cartões da lista dos projetos */
+        .container-projeto-resumido {
+            border: 1px solid black;
+            text-align: center;
+            min-width: 200px;
+            max-width: 25vw;
+            /* height: 150px; ~> deixar a página decidir a altura dos cartões */
+            padding: 30px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 15px; /* arredonda os cantos */
+            box-shadow: 5px 5px 15px grey;
+        }
+
+        .container-projeto-resumido * {
+            text-decoration: none;
+            color: black;
+        }
+
+        #texto-intro-pagina {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 5vh;
+        }
+
+        #zona-autenticada {
+            display: flex;
+            justify-content: end;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    {#% load static %#}
+    <!-- <script></script> -->
+{% endblock %}
+
+<!-- ::: INFO SOBRE A PÁGINA :::
+     > Listagem dos Projetos armazenados em BD, de forma resumida, projetos estes desenvolvidos ao longo do Curso
+     > Inspirado na página Licenciatura
+     > Selecionando um dos cartões expande os detalhes desse projeto, podendo alterá-lo / eliminar.
+     > Users autenticados também podem aqui inserir novos projetos.
+-->
+
+{% block main %}
+    <section id="texto-intro-pagina">
+        <hr>
+        <p>Nesta página pode consultar os projetos que considerei mais interessantes no Curso, e em que âmbito (Unidade
+            Curricular) se destinaram.</p>
+        <p>Se estiver autenticado no Site, terá uma opção disponível para inserir um novo Projeto.</p>
+        <p>Selecionando um dos projetos aqui listados abre uma nova página, apresentando em pormenor os detalhes sobre o
+            projeto. </p>
+        <p>Também se estiver autenticado, terá nessa página a possibilidade de editar dados ou remover esse projeto.</p>
+        <hr>
+    </section>
+
+    {% if request.user.is_authenticated %}
+        <br>
+        <div id="zona-autenticada">
+            <a id="btnInserir" href="{% url 'portfolio:novo-projeto' %}">Adicionar Projeto</a>
+        </div>
+        <br>
+    {% endif %}
+
+    <section>
+        <div class="container-projetos">
+            {% for projeto in projetos %}
+                {% include 'portfolio/projetos/card-projeto-resumido.html' with projetoView=projeto %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+

@@ -1,0 +1,155 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Responder ao Quiz{% endblock %}
+{% block page-title-body %}Responder ao Quiz{% endblock %}
+
+{% block css-block %}
+    <style>
+        .texto-intro {
+            margin-top: 5vh;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 60vw;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin-bottom: 5vh;
+        }
+
+        section .pergunta {
+            font-weight: bold;
+            background-color: white;
+            width: 100%;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding-top: 0.5vh;
+            padding-bottom: 0.5vh;
+        }
+
+        div #pergunta5 input {
+            width: 10%;
+            margin-left: 1vw;
+            font-size: 1.1em;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        input#nome-participante {
+            width: 30%;
+            margin-left: 1vw;
+            font-size: 1.1em;
+            border-radius: 3px;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    <!--
+        <script>
+        </script>
+    -->
+{% endblock %}
+
+{% block main %}
+    <div class="texto-intro">
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <section>
+                <!-- Pergunta 1 :: 1 resposta verdadeira :: 2 pontos -->
+                <p class="pergunta">1 - Em que âmbito (Unidade Curricular) este projeto foi desenvolvido?</p>
+                <br>
+                <input type="radio" id="p1_A" name="pergunta1" value="A" required>
+                <label for="p1_A">Linguagens de Programação I</label><br>
+
+                <input type="radio" id="p1_B" name="pergunta1" value="B">
+                <label for="p1_B">Matemática Discreta</label><br>
+
+                <input type="radio" id="p1_C" name="pergunta1" value="C">
+                <label for="p1_C">Programação Web</label><br>
+
+                <input type="radio" id="p1_D" name="pergunta1" value="D">
+                <label for="p1_D">Computação Móvel</label><br>
+            </section>
+
+            <section>
+                <!-- Pergunta 2 :: Se acertou 2, recebe 2 pontos. Se acertou 1, recebe 1. Senão, 0 -->
+                <p class="pergunta">2 - Quais das seguintes tecnologias
+                    <strong>NÃO</strong> foram utilizadas neste Site?</p>
+                <br>
+                <input type="checkbox" id="p2_A" name="p2_CheckA" value="HTML">
+                <label for="p2_A">HTML</label><br>
+
+                <input type="checkbox" id="p2_B" name="p2_CheckB" value="Java">
+                <label for="p2_B">Java</label><br>
+
+                <input type="checkbox" id="p2_C" name="p2_CheckC" value="CSS">
+                <label for="p2_C">CSS</label><br>
+
+                <input type="checkbox" id="p2_D" name="p2_CheckD" value="Laravel">
+                <label for="p2_D">Laravel</label><br>
+
+                <input type="checkbox" id="p2_E" name="p2_CheckE" value="Django">
+                <label for="p2_E">Django</label><br>
+            </section>
+
+            <section>
+                <!-- Pergunta 3 :: 1 resposta verdadeira :: 2 pontos -->
+                <p class="pergunta">3 - Para que serve o CSS?</p>
+                <br>
+                <input type="radio" id="p3_A" name="pergunta3" value="A" required>
+                <label for="p3_A">Estruturar a hierarquia de páginas Web</label><br>
+
+                <input type="radio" id="p3_B" name="pergunta3" value="B">
+                <label for="p3_B">Executar scripts nas páginas Web</label><br>
+
+                <input type="radio" id="p3_C" name="pergunta3" value="C">
+                <label for="p3_C">Reforçar a segurança das páginas Web</label><br>
+
+                <input type="radio" id="p3_D" name="pergunta3" value="D">
+                <label for="p3_D">Estilizar o conteúdo das Páginas Web</label><br>
+            </section>
+
+            <section>
+                <!-- Pergunta 4 :: 1 resposta verdadeira :: 2 pontos -->
+                <p class="pergunta">4 - Que linguagem de programação de suporte ao Back-End é utilizada no Django?</p>
+                <br>
+                <input type="radio" id="p4_A" name="pergunta4" value="A" required>
+                <label for="p4_A">Javascript</label><br>
+
+                <input type="radio" id="p4_B" name="pergunta4" value="B">
+                <label for="p4_B">C#</label><br>
+
+                <input type="radio" id="p4_C" name="pergunta4" value="C">
+                <label for="p4_C">Python</label><br>
+
+                <input type="radio" id="p4_D" name="pergunta4" value="D">
+                <label for="p4_D">VB.NET</label><br>
+            </section>
+
+            <section>
+                <!-- Pergunta 5 :: Resposta correcta == 2 pontos -->
+                <p class="pergunta">5 - Que idade tenho? <i>(Eu avisei que ia testar a concentração... 😜 Vou dar uma
+                    dica: entre 25 e 30!)</i></p>
+                <br>
+                <div id="pergunta5">
+                    <label for="p5">Idade: </label>
+                    <input type="number" id="p5" name="pergunta5" value="17" min="17" max="35" required>
+                </div>
+            </section>
+            <br>
+            <section>
+                <!-- Nome a submeter -->
+                <p>Tudo feito! Obrigado pela sua participação!</p>
+                <p>Por favor, indique o seu nome para guardar a pontuação:</p>
+                <br>
+                <label for="nome-participante">Nome: </label>
+                <input id="nome-participante" type="text" name="nome-participante" value="" required>
+            </section>
+
+            <input class="btnSubmeterForm" type="submit" value="Submeter respostas">
+        </form>
+        <br>
+    </div>
+{% endblock %}

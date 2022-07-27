@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 
@@ -15,6 +17,8 @@ class Pessoa(models.Model):
 
     # [cadeiras] ~> related_name para a lista de UnidadesCurricular (es) que leciona (se referenciar um Docente)
     # [projetos] ~> related_name para a lista de Projeto (s) associados
+    # [autor_tfc] ~> related_name para a lista de TFCs em que o objeto é Autor
+    # [orientador_tfc] ~> related_name para a lista de TFCs em que o objeto é Orientador
     # [link_linkedin] || (Campo omitido)
 
     def __str__(self):
@@ -34,42 +38,15 @@ class UnidadeCurricular(models.Model):
                                        validators=[RegexValidator(regex=r"\d\d\d\d\/\d\d")])  # exemplo: '2021/22'
     topicos = models.TextField(max_length=300)
     ranking = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
-    professores = models.ManyToManyField(Pessoa, related_name='cadeiras')  # TODO recheck relatedName
+    professores = models.ManyToManyField(Pessoa, related_name='cadeiras')
     link_pagina = models.TextField(blank=True, max_length=300)
     feita = models.BooleanField(default=False)
 
     # *** OUTROS CAMPOS ***
     # [projetos] ~> related_name para a lista de Projeto (s) associados
-    # #### [nome_curto] ~> models.CharField(max_length=10) # util para carregar imagens => possivel atributo p/ imgs
 
     def __str__(self):
         return self.nome
-
-
-class Projeto(models.Model):
-    """ TODO terminar classe e aplicar na pagina
-        Classe que descreve Projetos desenvolvidos em âmbito de Unidades Curriculares deste Curso.
-        Contém relação N:M com as classes Pessoa e Tecnologia, e 1:N com a classe UnidadeCurricular
-        (esta classe é a dependente, contendo a "chave estrangeira").
-
-        *NOTA*: O campo 'Link para Youtube' foi propositadamente omitido, por infelizmente não ter conseguido
-        resgatar os links dos (poucos) projetos em que foi solicitada gravação de vídeo e publicação no Youtube... :(
-    """
-    titulo = models.CharField(max_length=20)
-    descricao = models.TextField(max_length=500)
-    # imagem => TODO
-    ano = models.IntegerField()
-    cadeira = models.ForeignKey(UnidadeCurricular, blank=True, related_name='projetos',
-                                on_delete=models.CASCADE)  # TODO
-    participantes = models.ManyToManyField(Pessoa, related_name='projetos')  # TODO recheck relatedName
-    link_github = models.TextField(blank=True, max_length=300)
-    tecnologias = models.ManyToManyField(Tecnologia, related_name='projetos')  # TODO review. Classe ou texto??
-
-    # competencias # TODO. Pertence à classe Competencia. Em principio também será uma N:M ...
-    # [link_youtube] || (Campo omitido)
-
-    def __str__(self):
-        return self.titulo
 
 
 class Tecnologia(models.Model):
@@ -77,16 +54,32 @@ class Tecnologia(models.Model):
         Descreve uma tecnologia utilizada para suportar o desenvolvimento de 1+ Projeto (s).
         Contém relação N:M com a Classe Projeto (1 Projeto usa N tecnologias, e essa pode estar em M projetos)
     """
-    nome = models.CharField(max_length=20)
-    acronimo = models.CharField(max_length=5)
+
+    # Classe interna, para atribuir um tipo a cada tecnologia (FrontEnd / BackEnd / Outras)
+    class TiposTecnologia(models.TextChoices):
+        FRONT_END = 'F', 'Front-end'
+        BACK_END = 'B', 'Back-end'
+        OUTRAS = 'O', 'Outras'
+        LINGUAGEM_PROG = 'P', 'Linguagem de Programação'
+
+    nome = models.CharField(max_length=100)
+    acronimo = models.CharField(max_length=10)
     ano = models.IntegerField()
     autor = models.CharField(max_length=50)
-    # logotipo => TODO
     link_pagina = models.TextField(max_length=300)
     descricao_features = models.TextField(max_length=500)
-    contexto_usado = models.CharField(max_length=150)
+    contexto_usado = models.CharField(max_length=150, blank=True)
 
     # [projetos] ~> related_name para a lista de Projeto (s) associados
+    # Campos custom na Classe #
+    usada_projeto = models.BooleanField(default=False)  # Indica se foi usada neste Projeto (util @"Sobre a Pagina")
+    tipo_tecnologia = models.CharField(
+        max_length=1,
+        choices=TiposTecnologia.choices,
+        default=TiposTecnologia.OUTRAS
+    )
+
+    # logotipo |=> nao usado
 
     def __str__(self):
         return self.nome
@@ -94,8 +87,6 @@ class Tecnologia(models.Model):
 
 class Competencia(models.Model):
     """
-        TODO :: Considerar que isto seja já diretamente uma ENUM dentro da Classe Projeto,
-                se não tiver uso em mais nenhum sítio, que senão, na classe Projeto...!!
         Classe para descrever Competencias. Usa um genero de Enum, com tipos de Competencias previamente definidos,
         para que, no momento da criacao de uma Competencia, se selecione um dos tipos pré-existentes.
     """
@@ -112,39 +103,62 @@ class Competencia(models.Model):
         default=TiposCompetencia.TECNICA,
     )
 
+    # [projetos] ~> related_name para a lista de Projeto (s) associados
+
     def __str__(self):
         return self.descricao
 
 
-# ######### PENDENTES #########
-# TODO :: TODOS PARA BAIXO!
-# ######### ######### #########
-
-class TrabalhoFinalCurso(models.Model):
+class Projeto(models.Model):
     """
-        Classe para descrever projetos desenvolvidos por ex-colegas do nosso Curso,
-        desenvolvidos como Projeto Final em âmbito da Unidade Curricular TFC.
+        Classe que descreve Projetos desenvolvidos em âmbito de Unidades Curriculares deste Curso.
+        Contém relação N:M com as classes Pessoa e Tecnologia, e 1:N com a classe UnidadeCurricular
+        (esta classe é a dependente, contendo a "chave estrangeira").
+
+        *NOTA*: O campo 'Link para Youtube' foi propositadamente omitido, por infelizmente não ter conseguido
+        resgatar os links dos (poucos) projetos em que foi solicitada gravação de vídeo e publicação no Youtube... :(
     """
     titulo = models.CharField(max_length=20)
-    autor = models.CharField(max_length=50)
-    orientador = models.CharField(max_length=50)  # TODO :: Class ? Texto?
-    resumo = models.CharField(max_length=150)
-    # imagem => TODO
     descricao = models.TextField(max_length=500)
-    link_github = models.TextField(max_length=300)
-    link_youtube = models.TextField(max_length=300)
+    # imagem => TODO
+    ano = models.IntegerField()
+    cadeira = models.ForeignKey(UnidadeCurricular, blank=True, related_name='projetos',
+                                on_delete=models.CASCADE)
+    participantes = models.ManyToManyField(Pessoa, related_name='projetos')
+    link_github = models.TextField(blank=True, max_length=300)
+    tecnologias = models.ManyToManyField(Tecnologia, related_name='projetos')
+    competencias = models.ManyToManyField(Competencia, related_name='projetos')
+
+    # [link_youtube] || (Campo omitido)
 
     def __str__(self):
         return self.titulo
 
 
-class Blog(models.Model):
+class Formacao(models.Model):
+    """
+        Classe para descrever as formacoes que realizei ao longo do meu percurso Académico
+    """
+    nome_curso = models.CharField(max_length=100)
+    descricao_curso = models.TextField(max_length=500)
+    ano_inicio = models.IntegerField()
+    ano_conclusao = models.IntegerField()
+    local = models.CharField(max_length=50)
+    link_instituicao = models.TextField(max_length=300)
+
+    def __str__(self):
+        return self.nome_curso
+
+
+class BlogPost(models.Model):
     autor = models.CharField(max_length=50)
-    data_pub = models.DateTimeField()  # TODO ??
+    dataHora = models.DateTimeField(default=datetime.datetime.now)
+    titulo = models.CharField(max_length=50)
     texto = models.TextField(max_length=500)
-    # TODO => restantes campos...
-    # def __str__(self):
-    #    return self.nome_curso
+    imagem = models.ImageField(blank=True)
+
+    def __str__(self):
+        return self.titulo
 
 
 class PontuacaoQuizz(models.Model):
@@ -152,23 +166,34 @@ class PontuacaoQuizz(models.Model):
     pontuacao = models.IntegerField()
 
     def __str__(self):
-        return self.pontuacao
+        return f"{self.nome} -> {self.pontuacao} pontos"
 
 
-class Formacao(models.Model):
-    # ?
-    nome_curso = models.CharField(max_length=100)
-    descricao_curso = models.TextField(max_length=500)
-    ano_conclusao = models.IntegerField()
+# TODO
+class TrabalhoFinalCurso(models.Model):
+    """
+        Classe para descrever projetos desenvolvidos por ex-colegas do nosso Curso,
+        desenvolvidos na componente de Projeto Final em âmbito da Unidade Curricular de TFC.
+    """
+    titulo = models.CharField(max_length=20)
+    autores = models.ManyToManyField(Pessoa, related_name='autor_tfc')
+    orientadores = models.ManyToManyField(Pessoa, related_name='orientador_tfc')
+    ano_realizado = models.IntegerField()
+    sumario = models.CharField(max_length=150)
+    resumo = models.TextField(max_length=500)
+    link_github = models.TextField(max_length=300, blank=True)
+    link_youtube = models.TextField(max_length=300, blank=True)
+
+    # imagem => TODO
 
     def __str__(self):
-        return self.nome_curso
+        return self.titulo
 
 
-class ArtigoMedium(models.Model):
+# TODO
+class NoticiaMedium(models.Model):
     titulo = models.CharField(max_length=50)
-    descricao = models.TextField(max_length=500)
-    # imagem => TODO
+    descricao = models.CharField(max_length=150)  # RESUMIDO! 3 linhas
     link_artigo = models.TextField(max_length=300)
 
     def __str__(self):

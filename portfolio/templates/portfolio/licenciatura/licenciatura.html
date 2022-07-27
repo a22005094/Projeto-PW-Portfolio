@@ -1,0 +1,235 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Licenciatura{% endblock %}
+{% block page-title-body %}Licenciatura{% endblock %}
+
+{% block css-block %}
+    <style>
+        /* ******* CSS a aplicar sobre os Cards a utilizar na página ******* */
+
+        /* acrescenta um pouco de espacamento entre o header e os conteudos desta pagina */
+        main {
+            padding: 4em;
+            background-color: #edf8ff;
+        }
+
+        #section-licenciatura {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #section-licenciatura h1[id^=caixa-ano] {
+            color: black;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        .container-lista {
+            background-color: rgba(255, 255, 255, 40%);
+            border: 1px solid black;
+            border-radius: 10px;
+            /* Dar um pouco de espaço entre cada ano de listagem do Curso */
+            margin-bottom: 3vh;
+            width: 80vw;
+        }
+
+        #caixa-ano-1 {
+            background-color: rgb(153, 204, 255);
+        }
+
+        #caixa-ano-2 {
+            background-color: rgb(171, 255, 190);
+        }
+
+        #caixa-ano-3 {
+            background-color: rgb(255, 127, 127);
+        }
+
+        .flexivel-linhas {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilização dos Cartões que indicam o nome e docentes da unidade curricular */
+        .container-cadeira-resumido {
+            border: 1px solid black;
+            text-align: center;
+            min-width: 200px;
+            max-width: 25vw;
+            /* height: 150px; ~> deixar a página decidir a altura dos cartões */
+            padding: 30px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 15px; /* arredonda os cantos */
+            box-shadow: 5px 5px 15px grey;
+        }
+
+        .container-cadeira-resumido * {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* CSS para as caixas que indicam "1º Semestre" / "2º Semestre" */
+        #section-licenciatura h2[id^=ano] {
+            text-align: center;
+            text-decoration: underline;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            opacity: 0.60;
+        }
+
+        #texto-intro-pagina {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 5vh;
+        }
+
+        /* ********************************************************** */
+        /* PARTE ADMINISTRATIVA (inserir nova UC) */
+        /* Configurações para o formulário de Nova Unidade Curricular */
+        #seccao-nova-cadeira {
+            border: 2px solid black;
+            padding: 1vw 1vh;
+            max-width: 30vw;
+            margin: 0 auto;
+        }
+
+        #seccao-nova-cadeira h2 {
+            font-size: 2.0em;
+            text-align: center;
+        }
+
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    {% load static %}
+    <script>
+        $(document).ready(function () {
+            /* Esconder as subcategorias de pesquisa por defeito */
+            $("#ano-1-content").hide();
+            $("#ano-2-content").hide();
+            $("#ano-3-content").hide();
+
+            /* Definir o onclick em cada subcategoria, para esconder/mostrar elementos ao clique */
+            // *** ano1 ***
+            $("#caixa-ano-1").click(() => $("#ano-1-content").fadeToggle(400));
+            $("#ano-1-semestre-1").click(() => $("#ano-1-semestre-1-content").fadeToggle(400));
+            $("#ano-1-semestre-2").click(() => $("#ano-1-semestre-2-content").fadeToggle(400));
+            // *** ano2 ***
+            $("#caixa-ano-2").click(() => $("#ano-2-content").fadeToggle(400));
+            $("#ano-2-semestre-1").click(() => $("#ano-2-semestre-1-content").fadeToggle(400));
+            $("#ano-2-semestre-2").click(() => $("#ano-2-semestre-2-content").fadeToggle(400));
+            // *** ano3 ***
+            $("#caixa-ano-3").click(() => $("#ano-3-content").fadeToggle(400));
+            $("#ano-3-semestre-1").click(() => $("#ano-3-semestre-1-content").fadeToggle(400));
+            $("#ano-3-semestre-2").click(() => $("#ano-3-semestre-2-content").fadeToggle(400));
+        });
+    </script>
+{% endblock %}
+
+<!-- ::: INFO SOBRE A PÁGINA :::
+     > Listagem das Unidades Curriculares, de forma resumida.
+     > Inspirado em: https://codepen.io/LucioStuder/pen/MWrKXdy. Obrigado!
+     > Selecionando um dos cartões expande os detalhes dessa cadeira, podendo alterá-la / eliminar.
+     > Users autenticados também podem aqui inserir novas cadeiras.
+-->
+
+{% block main %}
+    <section id="texto-intro-pagina">
+        <hr>
+        <p>Nesta página pode consultar as Unidades Curriculares que mais gosto do meu Curso, devidamente organizadas
+            por Ano e Semestre.</p>
+        <p><strong><u>Todas as opções neste menu são selecionáveis!</u></strong> - Pode selecionar um Ano ou Semestre,
+            para expandir/esconder
+            essa respetiva categoria.</p>
+        <p>Selecionando uma das unidades curriculares aqui listadas expande os seus detalhes, e se estiver autenticado
+            no Site também poderá editar os dados da Unidade Curricular, ou até mesmo eliminá-la.</p>
+        <p>Também se estiver autenticado, no fundo desta página poderá inserir uma nova Unidade Curricular na
+            página.</p>
+        <hr>
+        <br>
+    </section>
+
+    <section id="section-licenciatura">
+        <div class="container-lista">
+            <h1 id="caixa-ano-1">1º Ano</h1>
+            <div id="ano-1-content">
+                <h2 id="ano-1-semestre-1">1º Semestre</h2>
+                <div id="ano-1-semestre-1-content" class="flexivel-linhas">
+                    {% for cadeiraA1S1 in a1s1 %}
+                        {% include 'portfolio/licenciatura/card-cadeira-resumido.html' with unidCurricular=cadeiraA1S1 %}
+                    {% endfor %}
+                </div>
+                <h2 id="ano-1-semestre-2">2º Semestre</h2>
+                <div id="ano-1-semestre-2-content" class="flexivel-linhas">
+                    {% for cadeiraA1S2 in a1s2 %}
+                        {% include 'portfolio/licenciatura/card-cadeira-resumido.html' with unidCurricular=cadeiraA1S2 %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="container-lista">
+            <h1 id="caixa-ano-2">2º Ano</h1>
+            <div id="ano-2-content">
+                <h2 id="ano-2-semestre-1">1º Semestre</h2>
+                <div id="ano-2-semestre-1-content" class="flexivel-linhas">
+                    {% for cadeiraA2S1 in a2s1 %}
+                        {% include 'portfolio/licenciatura/card-cadeira-resumido.html' with unidCurricular=cadeiraA2S1 %}
+                    {% endfor %}
+                </div>
+                <h2 id="ano-2-semestre-2">2º Semestre</h2>
+                <div id="ano-2-semestre-2-content" class="flexivel-linhas">
+                    {% for cadeiraA2S2 in a2s2 %}
+                        {% include 'portfolio/licenciatura/card-cadeira-resumido.html' with unidCurricular=cadeiraA2S2 %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="container-lista">
+            <h1 id="caixa-ano-3">3º Ano</h1>
+            <div id="ano-3-content">
+                <h2 id="ano-3-semestre-1">1º Semestre</h2>
+                <div id="ano-3-semestre-1-content" class="flexivel-linhas">
+                    {% for cadeiraA3S1 in a3s1 %}
+                        {% include 'portfolio/licenciatura/card-cadeira-resumido.html' with unidCurricular=cadeiraA3S1 %}
+                    {% endfor %}
+                </div>
+                <h2 id="ano-3-semestre-2">2º Semestre</h2>
+                <div id="ano-3-semestre-2-content" class="flexivel-linhas">
+                    {% for cadeiraA3S2 in a3s2 %}
+                        {% include 'portfolio/licenciatura/card-cadeira-resumido.html' with unidCurricular=cadeiraA3S2 %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO PARA INSERIR NOVA Unidade CURRICULAR, SE AUTENTICADO -->
+    {% if request.user.is_authenticated %}
+        <hr>
+        <br>
+        <section id="seccao-nova-cadeira">
+            <h2>Inserir Unidade Curricular</h2>
+            <hr>
+            <br>
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <br>
+                <div class="form-buttons">
+                    <a id="btnCancelar" href="">Cancelar</a>
+                    <input class="btnSubmeterForm" type="submit" value="Adicionar nova UC">
+                </div>
+            </form>
+        </section>
+    {% endif %}
+{% endblock %}

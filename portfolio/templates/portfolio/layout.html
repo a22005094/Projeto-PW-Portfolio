@@ -4,19 +4,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Rui Joaquim 22005094">
+    <meta name="keywords" content="porfolio projeto-pw">
+    <meta name="description" content="Meu portfolio (projeto de PW)">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block page-title-head %}{% endblock %}</title>
 
-
-    <!-- ***** CSS ***** -->
     {% load static %}
+    <!-- ***** FavIcon ***** -->
+    <link rel="icon" href="{% static 'portfolio/images/favicon.ico' %}">
+    <!-- ***** CSS ***** -->
     <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
 
     <!-- ***** Outras Importações ***** -->
     <!-- TipoLetra Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
-    <!-- Importar JQuery (PARA TESTES) -->
+    <!-- Importar JQuery. Para já apenas como TESTE - com planos para usar funções simples (FadeIn, FadeOut, etc.) -->
     <script src="{% static 'portfolio/scripts/jquery-3.6.0.js' %}"></script>
+    <!-- Importar ficheiro personalizado Javascript -->
+    <script src="{% static 'portfolio/scripts/scripts.js' %}"></script>
 
     <!-- Para inserir estilização CSS (<style>) específica em cada página (se necessario) -->
     {% block css-block %}
@@ -29,22 +36,48 @@
 <body>
 <div class="grid-container">
     <header class="layout-header">
-        <h2 id="page-title">{% block page-title-body %}{% endblock %}</h2>
+        <h2 id="page-title">
+            {% block page-title-body %}{% endblock %}
+        </h2>
         <nav>
             <a href="{% url 'portfolio:home' %}">Home</a>
-            <a href="{% url 'portfolio:apresentacao' %}">Apresentação</a>
-            <a href="{% url 'portfolio:competencias' %}">Competências</a>
-            <a href="{% url 'portfolio:formacao' %}">Formação</a>
+            <a href="{% url 'portfolio:educacao' %}">Educação</a>
             <a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a>
-            <a href="{% url 'portfolio:projetos' %}">Projetos</a>
+            <a href="{% url 'portfolio:todos-projetos' %}">Projetos</a>
+            <a href="{% url 'portfolio:prog-web' %}">Prog. Web</a>
+            <a href="{% url 'portfolio:quiz' %}">Quiz</a>
+            <a href="{% url 'portfolio:blog' %}">Blog</a>
+            <a href="{% url 'portfolio:sobre' %}">Sobre</a>
             <a href="{% url 'portfolio:contactos' %}">Contactos</a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'portfolio:logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'portfolio:login' %}">Login</a>
+            {% endif %}
         </nav>
     </header>
-    <main class="layout-main">
+    <main class="layout-main fadeElement">
         {% block main %}
         {% endblock %}
     </main>
-    <footer class="layout-footer">ULHT, 2022</footer>
+    <footer class="layout-footer">
+        <span id="span-horas">(A carregar hora atual...)</span>
+        <span>
+            {% if request.user.is_authenticated %}
+                <i>Autenticado como utilizador: <strong>{{ request.user.username }}</strong></i>
+            {% else %}
+                <i>(Utilizador não autenticado)</i>
+            {% endif %}
+        </span>
+        <span>
+            <strong>Rui Joaquim 22005094</strong>
+            • Eng. Informática
+            • ULHT 2021/22
+            <a href="https://www.ulusofona.pt/" target="_blank">
+                <img id="logo-ulht" src="{% static 'portfolio/images/icon-ulht.png' %}" alt="logo lusofona">
+            </a>
+        </span>
+    </footer>
 </div>
 </body>
 </html>

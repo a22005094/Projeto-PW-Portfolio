@@ -1,0 +1,175 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Programação Web{% endblock %}
+{% block page-title-body %}Programação Web{% endblock %}
+
+{% block css-block %}
+    <style>
+        .texto-intro {
+            margin-top: 5vh;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 60vw;
+            font-size: 1.4em;
+        }
+
+        .caixa-tecnologia {
+            margin-bottom: 3vh;
+            background-color: white;
+            width: 80%;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 0.5vh 0.2vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subtitulos {
+            font-weight: bold;
+        }
+
+        .nome-tecnologia-back {
+            background-color: lightblue;
+        }
+
+        .nome-tecnologia-front {
+            background-color: lightcoral;
+        }
+
+        .nome-tecnologia-outros {
+            background-color: lightgreen;
+        }
+
+        .usado-projeto {
+            background-color: khaki;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    <!--
+        <script>
+        </script>
+    -->
+{% endblock %}
+
+{% block main %}
+    <div class="texto-intro">
+        <p>
+            Hoje em dia existem inúmeras tecnologias e ferramentas que servem para apoiar e acelerar
+            o desenvolvimento de Websites e de Aplicações Web, seja para fins pessoais ou lucrativos (corporativo).
+        </p>
+        <p>
+            Muitas vezes, estas soluções surgem pelo facto de existir uma notável necessidade de simplificar
+            processos morosos e que por muitas vezes se repetem entre diferentes projetos, levando os programadores
+            a gastar tempo ( = dinheiro ) em reinventar soluções que já há muito são conhecidas, e que, derivado de
+            exigências de mercado para acelerar o desenvolvimento (Time-to-market), pode levar a erros ou lacunas
+            graves de desenvolvimento por parte do programador.
+        </p>
+        <p>
+            Com isto, têm-se visto nos últimos 20 anos o aparecimento de um vasto número de soluções focadas
+            em ajudar o programador (e, no limite, a sua empresa) a manterem-se produtivos e a focarem no que é
+            relevante, evitando quebrar 2 princípios críticos na programação:
+            <strong>[1] Não reinventar a roda</strong>; e <strong>[2] Don't Repeat Yourself (DRY)</strong>.
+        </p>
+        <br>
+        <p>
+            Pretendo nesta página dar a conhecer sobre algumas tecnologias populares e fortemente utilizadas
+            nos dias de hoje (as tecnologias usadas neste projeto estão destacadas a amarelo):
+        </p>
+        <br><br>
+        <!-- BACK END -->
+        <h2>Tecnologias Back-End:</h2>
+        <br>
+        {% for tec_backend in tecnologias_back %}
+            <section class="caixa-tecnologia {% if tec_backend.usada_projeto %}usado-projeto{% endif %}">
+                <p class="nome-tecnologia-back subtitulos">{{ tec_backend.nome }}
+                    (acrónimo: {{ tec_backend.acronimo }})</p>
+                <hr>
+                <br>
+                <p>
+                    {{ tec_backend.descricao_features }}
+                </p>
+                <br>
+                <hr>
+                <p>
+                    <span class="subtitulos">
+                        Ano lançamento:
+                    </span>
+                    {{ tec_backend.ano }}
+                </p>
+                <p>
+                    <span class="subtitulos">
+                        Autor:
+                    </span>
+                    {{ tec_backend.autor }}
+                </p>
+                <p>
+                    <a href="{{ tec_backend.link_pagina }}">🔗 Link para página</a>
+                </p>
+            </section>
+        {% endfor %}
+        <h2>Tecnologias Front-End:</h2>
+        <br>
+        {% for tec_frontend in tecnologias_front %}
+            <section class="caixa-tecnologia {% if tec_frontend.usada_projeto %}usado-projeto{% endif %}">
+                <p class="nome-tecnologia-front subtitulos">{{ tec_frontend.nome }}
+                    (acrónimo: {{ tec_frontend.acronimo }})</p>
+                <hr>
+                <br>
+                <p>
+                    {{ tec_frontend.descricao_features }}
+                </p>
+                <br>
+                <hr>
+                <p>
+                    <span class="subtitulos">
+                        Ano lançamento:
+                    </span>
+                    {{ tec_frontend.ano }}
+                </p>
+                <p>
+                    <span class="subtitulos">
+                        Autor:
+                    </span>
+                    {{ tec_frontend.autor }}
+                </p>
+                <p>
+                    <a href="{{ tec_frontend.link_pagina }}">🔗 Link para página</a>
+                </p>
+            </section>
+        {% endfor %}
+        <h2>Outras Tecnologias:</h2>
+        <br>
+        {% for tec_outras in tecnologias_outras %}
+            <section class="caixa-tecnologia {% if tec_outras.usada_projeto %}usado-projeto{% endif %}">
+                <p class="nome-tecnologia-outros subtitulos">{{ tec_outras.nome }}
+                    (acrónimo: {{ tec_outras.acronimo }})</p>
+                <hr>
+                <br>
+                <p>
+                    {{ tec_outras.descricao_features }}
+                </p>
+                <br>
+                <hr>
+                <p>
+                    <span class="subtitulos">
+                        Ano lançamento:
+                    </span>
+                    {{ tec_outras.ano }}
+                </p>
+                <p>
+                    <span class="subtitulos">
+                        Autor:
+                    </span>
+                    {{ tec_outras.autor }}
+                </p>
+                <p>
+                    <a href="{{ tec_outras.link_pagina }}">🔗 Link para página</a>
+                </p>
+            </section>
+        {% endfor %}
+        <br>
+        <br>
+    </div>
+{% endblock %}

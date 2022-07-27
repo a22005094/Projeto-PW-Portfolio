@@ -1,0 +1,218 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Blog{% endblock %}
+{% block page-title-body %}Blog{% endblock %}
+
+{% block css-block %}
+    <style>
+        .texto-intro {
+            margin-top: 10vh;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 50vw;
+            font-size: 1.5em;
+        }
+
+        /*
+           DISCLAIMER:
+            Esta estilização foi inspirada em páginas de "CSS tricks" com templates disponíveis de forma livre.
+            Limitei-me a fazer as devidas adaptações sobre a base, para moldar às necessidades deste projeto.
+            Créditos Originais: Matt Smith. Link: https://codepen.io/AllThingsSmitty/pen/jommGQ
+        */
+
+        .imessage {
+            background-color: #fff;
+            border: 1px solid #e5e5ea;
+            border-radius: 0.25rem;
+            box-shadow: 0 0 10px #ccc;
+            display: flex;
+            flex-direction: column;
+            font-family: "SanFrancisco", Roboto, sans-serif;
+            font-size: 1.25rem;
+            margin: 0 auto 1rem;
+            max-width: 600px;
+            padding: 0.5rem 1.5rem;
+        }
+
+        .imessage p {
+            border-radius: 1.15rem;
+            line-height: 1.25;
+            max-width: 75%;
+            padding: 0.5rem .875rem;
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .imessage p::before,
+        .imessage p::after {
+            bottom: -0.1rem;
+            content: "";
+            height: 1rem;
+            position: absolute;
+        }
+
+        p[class^="from-"] {
+            margin: 0.5rem 0;
+            width: fit-content;
+        }
+
+        p.from-them {
+            align-items: flex-start;
+            background-color: #e5e5ea;
+            color: #000;
+        }
+
+
+        p.from-them::before {
+            border-bottom-left-radius: 0.8rem 0.7rem;
+            border-right: 1rem solid #e5e5ea;
+            right: -0.35rem;
+            transform: translate(0, -0.1rem);
+        }
+
+        p.from-them::after {
+            background-color: #fff;
+            border-bottom-left-radius: 0.5rem;
+            right: -40px;
+            transform: translate(-30px, -2px);
+            width: 10px;
+        }
+
+
+        /* general styling */
+        @font-face {
+            font-family: "SanFrancisco";
+            src: url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff2") format("woff2"),
+            url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
+        }
+
+        body {
+            font-family: Roboto,
+            sans-serif;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 80vw;
+            padding: 1rem;
+            border-radius: 20px;
+        }
+
+        h1 {
+            font-weight: normal;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            border-bottom: 1px solid #e5e5ea;
+            color: #666;
+            font-weight: normal;
+            margin-top: 0;
+            padding-bottom: 1.5rem;
+        }
+
+        .comment {
+            color: #222;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            max-width: 100%;
+            padding: 0;
+        }
+
+        @media screen and (max-width: 800px) {
+            body {
+                margin: 0 0.5rem;
+            }
+
+            .container {
+                padding: 0.5rem;
+            }
+
+            .imessage {
+                font-size: 1.05rem;
+                margin: 0 auto 1rem;
+                max-width: 600px;
+                padding: 0.25rem 0.875rem;
+            }
+
+            .imessage p {
+                margin: 0.5rem 0;
+            }
+        }
+
+        /* *** */
+
+        .bloco-autor {
+            text-align: end;
+        }
+
+        #seccao-novo-post {
+            border: 2px solid black;
+            padding: 1vw 1vh;
+            max-width: 30vw;
+            margin: 10vh auto 5vh;
+        }
+
+        #seccao-novo-post h2 {
+            font-size: 2.0em;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    <!--
+        <script>
+        </script>
+    -->
+{% endblock %}
+
+{% block main %}
+    <div class="texto-intro">
+        <p>
+            Vejamos as mensagens que os nossos visitantes nos têm deixado... 👀 🤔
+        </p>
+        <br>
+    </div>
+    <br>
+
+    {% for blogPost in posts %}
+        <div class="container">
+            <p>
+
+            </p>
+            <div class="imessage">
+                <!-- Parte com o titulo do Post -->
+                <p>
+                    <strong><i>{{ blogPost.titulo }}</i></strong>
+                </p>
+                <!-- Parte com o conteudo do Post -->
+                <p class="from-them">
+                    " <i>{{ blogPost.texto }}</i> "
+                </p>
+                <span class="bloco-autor">
+                    <strong>{{ blogPost.autor }}</strong> - {{ blogPost.dataHora|date:"d/m/Y @ H:i:s" }}
+                </span>
+            </div>
+        </div>
+    {% endfor %}
+    <section id="seccao-novo-post">
+        <h2>Inserir Post</h2>
+        <hr>
+        <br>
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <br>
+            <div class="form-buttons">
+                <a id="btnCancelar" href="{% url 'portfolio:blog' %}">Cancelar</a>
+                <input class="btnSubmeterForm" type="submit" value="Adicionar Post">
+            </div>
+        </form>
+    </section>
+{% endblock %}

@@ -12,12 +12,9 @@
 }
 
 /* Todos os links em hover devem tomar a cor selecionada */
-a:hover {
-    color: orangered;
-}
 
 a:visited {
-    color: darksalmon;
+    color: dodgerblue;
 }
 
 nav a:active {
@@ -25,14 +22,18 @@ nav a:active {
 }
 
 nav a:hover {
-    font-size: 1.1em;
+    font-size: 1.3em;
     font-weight: bold;
+}
+
+a:hover {
+    color: darkblue;
 }
 
 /* *** CONFIGURAÇÃO CSS GRID NA PÁGINA *** */
 .grid-container {
-    /* colocar o container da grid a ocupar a totalidade da viewport (contem toda a página em si) */
-    width: 100vw;
+    /* colocar o container da grid a ocupar aproximadamente a totalidade da viewport (contem toda a página em si) */
+    width: 99vw;
     height: 100vh;
 
     /* configurar CSS grid */
@@ -58,52 +59,94 @@ nav a:hover {
 
 .layout-footer {
     grid-area: footerGrid;
+    display: flex;
+    justify-content: space-between;
 }
 
 /* ********** Fim config CSS grid ********** */
 
 /* ****** Configurações secções do Template ****** */
 header {
-    background: white;
+    background: #ebf6ff;
+    opacity: 80%;
     top: 0;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 
     /* alinhar items da barra do header */
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    /* Acrescentar ao header a propriedade sticky, para ao fazer scrolling, manter a barra no sitio */
+    position: sticky !important;
 }
 
 header nav {
     display: flex;
     justify-content: flex-end;
+    gap: 0.5vw;
 }
+
+/*
+    nav a:first-child {
+        border-left: 2px solid grey;
+    }
+*/
 
 nav a {
     padding: 0 1em;
     text-decoration: none;
-    font-size: 1rem;
-    color: orange;
+    font-size: 1.0rem;
+    color: blueviolet;
+    font-weight: bold;
+    /* border-right: 2px solid grey; */
 }
 
 main {
-    background-color: silver;
-    padding: 4em 4em;
+    background-color: rgb(225, 233, 255);
 }
 
 footer {
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     display: flex;
     justify-content: flex-end;
     padding: 0 2vw;
     align-items: center;
 }
 
+#logo-ulht {
+    margin-left: 0.5vw;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+#span-horas {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 /* CONFIGURACOES MAIS ESPECIFICAS + CSS's personalizados */
+
+/* Um teste que quis implementar, mas não funciona... :(
+   Pretendia que só os List Items COM links, trocassem de icone ao passar o rato por cima. No entanto, nada acontece.
+   [PLANO B]: TODOS os ListItems alteram ícone, tenham link ou não. Funciona, mas não é como pretendia...
+*/
+/*
+    li:has(a):hover {
+        list-style-type: "👉  ";
+    }
+*/
+
+li:hover {
+    list-style-type: "👉  ";
+}
 
 #page-title {
     /* coloca o titulo ligeiramente mais à frente, para nao ficar totalmente encostado à esquerda */
     margin-left: 3vw;
+    font-size: 1.7rem;
 }
 
 .text-aligned-center {
@@ -113,50 +156,53 @@ footer {
     /* configurar alinhamento ao centro */
     display: flex;
     flex-flow: column wrap;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
 }
 
-/* CARTÕES PRETTY PARA LISTAGENS (ex.: página Licenciatura) */
-/* Créditos no CSS-base: https://codepen.io/LucioStuder/pen/MWrKXdy. Obrigado aos Professores pelas demos @CodePen! */
-.container-cards-no-image {
-    /*background-color: rgb(238, 248, 248);*/
+.form-buttons {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    padding: 25px 100px;
+    justify-content: end;
+    align-items: center;
+    gap: 5%;
 }
 
-.container-cards-no-image div {
-    /* float: left; */
-    width: 20vw;
-    /* height: 150px; ~> deixar a página decidir a altura dos cartões */
-    padding: 25px;
-    margin: 10px;
-    background-color: white;
-    border-radius: 10px; /* arredonda os cantos */
-    box-shadow: 5px 5px 15px grey;
-}
+/* ESTILIZACAO DE BOTOES A UTILIZAR NAS PÁGINAS (nomeadamente para suportar operacoes CRUD */
 
-/* configura cada paragrafo em si (cada linha) nos cartoes */
-.container-cards-no-image div p {
-    margin: 10px;
-}
-
-/* Configura os titulos nos cartoes */
-.container-cards-no-image div span {
+.btnSubmeterForm {
+    padding: 10px;
+    background-color: lightskyblue;
     font-weight: bold;
-    font-style: italic;
+    font-size: 1.0em;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/* Configura as listas nestes cartoes (o que aqui se pretende é avançar mais para a frente o texto) */
-.container-cards-no-image div ul {
-    display: table;
-    margin: auto;
-    list-style-type: square;
+#btnInserir, #btnEditar, #btnCancelar, #btnEliminar {
+    text-decoration: none;
+    padding: 10px;
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid black;
+    cursor: pointer;
 }
 
-.container-cards-no-image div ul:hover {
-    display: table;
-    margin: auto;
+#btnInserir {
+    background-color: lightskyblue;
+}
+
+#btnEditar {
+    background-color: orange;
+}
+
+#btnCancelar {
+    background-color: orange;
+}
+
+#btnEliminar {
+    color: white;
+    background-color: red;
+    text-shadow: 2px 2px black;
 }

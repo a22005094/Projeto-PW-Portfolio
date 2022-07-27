@@ -1,0 +1,10 @@
+<div class="container-projeto-resumido">
+    <a href="{% url 'portfolio:ver-projeto' projetoView.pk %}">
+        <h2>{{ projetoView.titulo }}</h2>
+        <hr>
+        <p>
+            <strong>Unidade Curricular: </strong>
+            {{ projetoView.cadeira.nome }}
+        </p>
+    </a>
+</div>

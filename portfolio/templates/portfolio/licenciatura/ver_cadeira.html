@@ -1,0 +1,142 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Detalhes da UC{% endblock %}
+{% block page-title-body %}Detalhes da UC{% endblock %}
+
+{% block css-block %}
+    <style>
+        /* ******* CSS para os Cards a utilizar na página *********** */
+        /* > Inicialmente esta configuração estava feita na stylesheet global "styles.css", mas como
+             esta estilização se acabou por tornar única para esta página da Licenciatura,
+             decidi reorganizar e passar os estilos que são únicos, para o próprio lugar onde pertencem
+             (escusando ter definições em páginas onde não serão utilizadas...)
+
+           > Créditos no CSS-base: https://codepen.io/LucioStuder/pen/MWrKXdy.
+             Obrigado aos Professores pelas demos no CodePen! Foram bastante úteis :)
+        */
+
+        .container-cadeira-details {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            min-width: 350px;
+            max-width: 25vw;
+            padding: 25px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 10px; /* arredonda os cantos */
+            box-shadow: 5px 5px 15px grey;
+            /* height: 150px; ~> deixar a página decidir a altura dos cartões */
+        }
+
+        /* configura cada paragrafo em si (cada linha) nos cartoes */
+        .container-cadeira-details p {
+            margin: 10px;
+        }
+
+        /* Configura os subtitulos nos cartoes */
+        .container-cadeira-details span {
+            font-weight: bold;
+        }
+
+        /* Configura as listas nestes cartoes (o que aqui se pretende é avançar mais para a frente o texto) */
+        .container-cadeira-details ul {
+            display: table;
+            margin-left: 15%;
+        }
+
+        /* acrescenta um pouco de espacamento entre o header e os conteudos desta pagina */
+        main {
+            padding: 4em;
+            background-color: #edf8ff;
+        }
+
+        #section-detalhes-cadeira {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            margin: 5vh;
+        }
+
+        /* Configurações para o formulário de Nova Unidade Curricular */
+        #seccao-editar-cadeira {
+            border: 2px solid black;
+            padding: 1vw 1vh;
+            max-width: 40vw;
+        }
+
+        #seccao-editar-cadeira h1 {
+            font-size: 2.0em;
+            text-align: center;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: end;
+            gap: 5%;
+        }
+
+        #operacoes {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: start;
+            gap: 5vw;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    {#% load static %#}
+    <!--
+        <script>
+        </script>
+    -->
+{% endblock %}
+
+
+<!-- ::: INFO SOBRE A PÁGINA :::
+     > Lista os detalhes de uma Unidade Curricular em particular.
+     > Se o utilizador estiver autenticado, é também fornecido um formulário
+       para edição dos campos, e um botão para eliminar a Unidade Curricular da BD.
+-->
+
+
+
+{% block main %}
+
+    <section id="section-detalhes-cadeira">
+        {% include 'portfolio/licenciatura/card-cadeira-details.html' with unidCurricular=cadeira %}
+    </section>
+
+    <!-- BLOCO PARA EDITAR/ELIMINAR UC -->
+    {% if request.user.is_authenticated %}
+        <hr>
+        <br>
+        <div id="operacoes">
+            <section id="seccao-editar-cadeira">
+                <h1>Alterar dados da UC</h1>
+                <hr>
+                <br>
+                <form action="" method="post"> {#% url 'tarefas:nova' %#}
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <br>
+
+                    <div class="form-buttons">
+                        <a id="btnCancelar" href="">Cancelar</a>
+                        <input class="btnSubmeterForm" type="submit" value="Gravar alterações">
+                    </div>
+                </form>
+            </section>
+
+            <form action="{% url 'portfolio:eliminar-cadeira' cadeira.pk %}" method="post">
+                {% csrf_token %}
+                <button id="btnEliminar" type="submit" name="submeter" value="submeter">Eliminar UC</button>
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

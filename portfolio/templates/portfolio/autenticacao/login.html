@@ -1,0 +1,127 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Autenticação{% endblock %}
+{% block page-title-body %}Autenticação{% endblock %}
+
+{% block css-block %}
+    <style>
+        main {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main > * {
+            font-size: 1.6em;
+        }
+
+        .texto-intro {
+            margin-top: 3vh;
+            margin-bottom: 5vh;
+        }
+
+        .texto-intro p {
+            margin: 0.3rem;
+        }
+
+        ul {
+            margin-left: 5vw;
+        }
+
+        form {
+            width: 25vw;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid grey;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+        }
+
+        form input {
+            width: 90%;
+            margin: 0.5vh;
+            padding: 1em;
+            border: 2px solid #2078b9;
+            border-radius: 15px;
+            color: black;
+        }
+
+        form input:hover {
+            border: 2px solid #6abcee;
+        }
+
+        form button {
+            width: 90%;
+            border: 2px double black;
+            background-color: #edf8ff;
+            border-radius: 15px;
+            color: black;
+            text-space: 10px;
+            padding: 2vh 2vw;
+            cursor: pointer;
+            font-size: 1.5rem;
+            margin-top: 3vh;
+            margin-bottom: 2vh;
+        }
+
+        .caixa-erro {
+            width: 25vw;
+            background-color: #d52929;
+            color: black;
+            border: 2px solid black;
+            font-weight: 600;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    <script>
+        $(document).ready(function () {
+            /* SE existir mensagem de erro, aparece durante 2 segundos, e depois retira a mensagem */
+            /* Creditos: https://stackoverflow.com/questions/4592493/check-if-element-exists-in-jquery */
+            let msgErro = $(".caixa-erro");
+
+            if (msgErro.length) {
+                msgErro.hide().fadeIn().delay(2000).hide(200);
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block main %}
+    <!-- Pagina apresentada ao user apenas quando não está autenticado. Caso contrário, é apresentada a de Logout -->
+    <div class="texto-intro">
+        <p>
+            De momento, o registo de novos utilizadores no Site ainda não está disponível.
+        </p>
+        <p>
+            Para simplificar, poderão utilizar as seguintes credenciais que já deixei prontas a usar 😁
+        </p>
+        <br>
+        <ul>
+            <li>
+                <strong>Username: </strong> guest / <strong>password: </strong> 123
+            </li>
+            <li>
+                <strong>Username: </strong> teste / <strong>password: </strong> 123
+            </li>
+        </ul>
+    </div>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Username" name="username" value="">
+        <input type="password" placeholder="Password" name="password" value="">
+        <button type="submit" name="submeter" value="submeter">LOGIN</button>
+    </form>
+
+    {% if msg_erro %}
+        <div class="caixa-erro">
+            <p>{{ msg_erro }}</p>
+        </div>
+    {% endif %}
+{% endblock %}

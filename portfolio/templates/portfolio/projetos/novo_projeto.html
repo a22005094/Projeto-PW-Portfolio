@@ -1,0 +1,56 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Novo Projeto{% endblock %}
+{% block page-title-body %}Novo Projeto{% endblock %}
+
+{% block css-block %}
+    <style>
+        /* ******* CSS a aplicar no formulario para inserir novo projeto ******* */
+        /* Configurações para o formulário */
+        #seccao-novo-projeto {
+            border: 2px solid black;
+            padding: 1vw 1vh;
+            max-width: 30vw;
+            margin: 0 auto;
+        }
+
+        #seccao-novo-projeto h2 {
+            font-size: 2.0em;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    {#% load static %#}
+    <!--<script>
+    </script>-->
+{% endblock %}
+
+<!-- ::: INFO SOBRE A PÁGINA :::
+     > Apresenta formulário para gerar um novo projeto.
+     > Ao inserir com sucesso, encaminha de volta para a página da lista de Projetos.
+-->
+
+{% block main %}
+    {% if request.user.is_authenticated %}
+        <hr>
+        <br>
+        <section id="seccao-novo-projeto">
+            <h2>Inserir Projeto</h2>
+            <hr>
+            <br>
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <br>
+                <div class="form-buttons">
+                    <a id="btnCancelar" href="{% url 'portfolio:todos-projetos' %}">Cancelar</a>
+                    <input class="btnSubmeterForm" type="submit" value="Adicionar Projeto">
+                </div>
+            </form>
+        </section>
+    {% endif %}
+{% endblock %}

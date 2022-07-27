@@ -1,0 +1,203 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Sobre a página{% endblock %}
+{% block page-title-body %}Sobre a página{% endblock %}
+
+{% block css-block %}
+    <style>
+        .texto-intro {
+            margin-top: 5vh;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 70vw;
+            font-size: 1.4em;
+        }
+
+        .texto-intro section {
+            margin-bottom: 10vh;
+        }
+
+        /*
+            .below-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        */
+
+        .caixa-tecnologia {
+            margin-bottom: 3vh;
+            background-color: #e3f6ff;
+            width: 80%;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 0.5vh 0.2vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .caixa-tecnologia:nth-child(even) {
+            /* os cartões pares ficam com outra cor de fundo */
+            background-color: #bee4ef;
+        }
+
+        .subtitulos {
+            font-weight: bold;
+        }
+
+        .subtitulos-color {
+            color: steelblue;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    <!--
+        <script>
+        </script>
+    -->
+{% endblock %}
+
+{% block main %}
+    <div class="texto-intro">
+        <section>
+            <hr>
+            <h3 class="subtitulos-color" style="text-align: center;">
+                Estrutura do Site 🏗️
+            </h3>
+            <hr>
+            <br>
+            <p>
+                Por questões de simplificação, decidi deixar todos os menus principais do projeto
+                acessíveis através da barra superior (header) das páginas, evitando criar um nível de páginas muito
+                aprofundado e que tornasse difícil o acompanhamento e interpretação por parte do utilizador.
+            </p>
+            <br>
+            <p>
+                O trade-off desta decisão traduziu-se em se ter a barra de header (navegação) mais preenchida
+                do que esperado, no entanto considero que traz uma vantagem mais relevante:
+                <strong>transparência de todos conteúdos do Site</strong>.
+            </p>
+        </section>
+
+        <section>
+            <hr>
+            <h3 class="subtitulos-color" style="text-align: center;">
+                Padrões utilizados
+            </h3>
+            <hr>
+            <br>
+            <p class="subtitulos-color"><strong><u>1. HTTP</u></strong></p>
+            <p>
+                • No desenvolvimento desta aplicação Web, e derivado de se tratar de um Site que será hospedado
+                por um único Servidor, o padrão para troca de mensagens aqui utilizado foi o HTTP, tipicamente usado
+                em cenários onde um cliente estabelece ligação com um servidor-destino (que contém recursos necessários
+                para o cliente), e é através da ligação que o cliente efetua pedidos a determinados recursos, seja
+                para criar, ler, editar ou remover conteúdos (CRUD) hospedados pelo servidor.
+            </p>
+            <br>
+            <p class="subtitulos-color"><strong><u>2. MVC/MTV</u></strong></p>
+            <p>
+                • Relativamente à estrutura e organização de ficheiros de código desenvolvidos no âmbito deste projeto,
+                o Django motiva a adoção do modelo MVC (Model-View-Controller), sendo pelo Django chamado de MTV
+                (Model-Template-View). Este padrão tem por objetivo estabelecer uma divisão, bem definida,
+                entre diferentes tipos de componentes utilizados no projeto (MVC), conforme a finalidade a que
+                cada um corresponde, separando os componentes por localizações diferentes, mediante os tipos
+                de responsabilidades nestes impostas. M significa Model, e corresponde a dados do Negócio que são
+                acedidos e manipulados pelo Controlador quando se recebem pedidos de um cliente.
+                V significa View, e são as "Vistas" (páginas HTML com estilização e dados preenchidos) que serão
+                devolvidas ao cliente na resposta ao seu pedido, após terminar o seu processamento. Por fim,
+                C significa Controlador, sendo este quem recebe inicialmente os pedidos dos Clientes e trata de
+                identificar a rota e código a executar que esteja associado ao recurso que lhes foi solicitado
+                (processando possíveis interações com os Dados do Model quando necessário), terminando ao colocar
+                os dados necessários na View, antes de devolver a resposta ao Cliente.
+            </p>
+            <p>
+                Como referido anteriormente, no Django a mesma lógica aplica-se, mas existe uma alteração de
+                nomenclatura (Model mantém-se como Model, View passa a ser Template, e Controller passa a ser View).
+            </p>
+            <br>
+            <p class="subtitulos-color"><strong><u>3. AJAX</u></strong></p>
+            <p>
+                • Além dos padrões utilizados e anteriormente referidos, de forma a possibilitar a requisição de
+                pedidos a recursos de servidores distintos com uma gestão mais focada no lado do cliente (client-side),
+                recorreu-se também à utilização de <strong>AJAX</strong> (Asynchronous JavaScript and XML) para
+                efetuar pedidos de forma assíncrona (isto é, que permitem manter o normal fluxo de funcionamento
+                da aplicação Web enquanto os resultados não são devolvidos pelo servidor, sem que esta espera
+                seja bloqueante). A sua utilização estende-se principalmente na página "API", onde é possível
+                verificar que a página inicialmente tem dados em falta e, momentos depois, os dados são
+                atualizados com a resposta emitida por parte do Servidor, sem necessidade de recarregar inteiramente
+                a página (Postback ao servidor). AJAX é também fundamental para o desenvolvimento de Single Page
+                Applications (SPA), padrão que segue princípios semelhantes pois evita repetir carregamento de dados
+                estáticos, ao solicitar apenas os dados que são pretendidos (por exemplo: ao adicionar um item
+                numa lista, só a lista deverá ser atualizada e os restantes conteúdos da página inalterados
+                não devem ser recarregados).
+            </p>
+        </section>
+        <br>
+        <section>
+            <hr>
+            <h3 class="subtitulos-color" style="text-align: center;">
+                Tecnologias utilizadas no Site 💻 ⚙️
+            </h3>
+            <hr>
+            <br>
+            <p style="text-align: center;">
+                O desenvolvimento e publicação desta Aplicação Web foi suportada com a utilização das seguintes
+                tecnologias:
+            </p>
+            <br>
+            {% for tecnologia in tecnologias %}
+                <section class="caixa-tecnologia">
+                    <p class="nome-tecnologia-back subtitulos">{{ tecnologia.nome }}
+                        (acrónimo: {{ tecnologia.acronimo }})</p>
+                    <hr>
+                    <br>
+                    <p>
+                        {{ tecnologia.descricao_features }}
+                    </p>
+                    <br>
+                    <hr>
+                    <p>
+                        <span class="subtitulos">
+                            Tipo:
+                        </span>
+                        {{ tecnologia.tipo_tecnologia }}
+                    </p>
+                    <p>
+                        <span class="subtitulos">
+                            Ano lançamento:
+                        </span>
+                        {{ tecnologia.ano }}
+                    </p>
+                    <p>
+                        <span class="subtitulos">
+                            Autor:
+                        </span>
+                        {{ tecnologia.autor }}
+                    </p>
+                    <p>
+                        <a href="{{ tecnologia.link_pagina }}">🔗 Link para página</a>
+                    </p>
+                </section>
+            {% endfor %}
+
+
+        </section>
+
+
+        <!--
+        <div class="below-content">
+            <ul>
+                <li>
+
+                </li>
+
+            </ul>
+        </div>
+        -->
+
+        <br>
+        <br>
+    </div>
+{% endblock %}

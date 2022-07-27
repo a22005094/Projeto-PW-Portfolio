@@ -1,14 +1,69 @@
 {% extends 'portfolio/layout.html' %}
 
 {% block page-title-head %}Rui Joaquim - Portfólio{% endblock %}
-{% block page-title-body %}Portfólio{% endblock %}
+{% block page-title-body %}Meu portfólio{% endblock %}
 
 {% block css-block %}
     <style>
-        div > main {
+        main > * {
             display: flex;
+            flex-flow: column wrap;
             justify-content: center;
             align-items: center;
+            font-size: 1.1em;
+        }
+
+        main > article {
+            /* como o menu ocupa 10vh, este tem 90vh para o vermo inteiro. */
+            height: 90vh;
+            background-image: url("https://source.unsplash.com/m_HRfLhgABo/1280x720");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        /* caixa com cumprimentos */
+        .caixa-greetings .caixa-texto-greetings {
+            color: white;
+            font-size: 2.5em;
+            background-color: cornflowerblue;
+            text-align: left;
+            text-shadow: 2px 2px darkblue;
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 0 3vw;
+        }
+
+        .caixa-minha-imagem {
+            border-radius: 50%;
+            border: 5px solid white;
+            overflow: hidden;
+            background-size: cover;
+            margin: 5vh;
+            box-shadow: 2px 4px dodgerblue;
+        }
+
+        .caixa-minha-imagem img {
+            /* preencher ao máximo a div onde a imagem está contida */
+            width: 100%;
+            height: 100%;
+        }
+
+        article.sobre-mim {
+            /* configuração do bloco por baixo, com texto sobre mim */
+            height: 65vh;
+            background: rgb(238, 240, 251);
+            padding: 0 20vw;
+            font-size: 1.5rem;
+            color: black;
+        }
+
+        article .sobre-mim-title {
+            /* a parte do titulo Sobre mim */
+            font-size: 2.5rem;
+            color: rgb(73, 147, 220);
+            text-shadow: 2px 2px black;
         }
     </style>
 {% endblock %}
@@ -18,23 +73,67 @@
 {% endblock %}
 
 {% block main %}
-    <div class="text-aligned-center">
-        <p>Olá, {{ greetings }} 👋😀</p>
-        <p>Bem-vind@s ao meu portfólio.</p>
-    </div>
-    <!-- {# load static #} <img src="{# static 'portfolio/images/image.png' #}"> -->
+    <!-- Visuais inspirados no exemplo fornecido pelos Docentes ( Link: https://codepen.io/LucioStuder/pen/vYpqwra )
+         Uma vez mais, obrigado! -->
+
+    <article class="caixa-greetings">
+        <div class="caixa-minha-imagem">
+            {% load static %}
+            <img src="{% static 'portfolio/images/my_photo.jpg' %}" alt="minha imagem">
+        </div>
+        <div class="caixa-texto-greetings">
+            <p>
+                Olá, {{ greetings }} 😀
+            </p>
+            <p>
+                O meu nome é Rui Joaquim
+            </p>
+            <p>
+                Sejam bem-vind@s ao meu portfólio!👋
+            </p>
+        </div>
+    </article>
+
+    <article class="sobre-mim">
+        <div class="sobre-mim-title">
+            <b>Sobre mim</b>
+            <br><br>
+        </div>
+        <div class="sobre-mim-texto">
+            <p>
+                <strong>O meu nome é Rui Joaquim, tenho 27 anos e sou de Torres Vedras.</strong>
+            </p>
+            <p>
+                Aos 6 anos tive o meu primeiro contacto com a Informática, quando os meus pais adquiriram o primeiro
+                "computador de família", na altura partilhado entre todos da casa.
+            </p>
+            <br>
+            <p>
+                O fascínio pela tecnologia naquele momento (<i>circa</i> ano 2000) levou-me a sentir curiosidade em
+                querer aprender a fundo a
+                "<strong><span style="color: purple">m</span><span style="color: darkblue">a</span><span
+                    style="color: darkgreen">g</span><span style="color:orange">i</span><span
+                    style="color: darkred">a</span></strong>"
+                que leva estes a funcionar, além do que simplesmente vemos através do ecrã.
+                Isto levou-me a descobrir a minha paixão, e a área onde na minha vida pretendo evoluir
+                profissionalmente.
+            </p>
+            <br>
+            <p>
+                Atualmente, estou a frequentar a Licenciatura em Engenharia Informática na ULHT,
+                trabalhando também numa consultora informática onde desempenho funções de <i>Junior .NET Developer</i>.
+            </p>
+            <br>
+            <p>
+                Tem sido uma jornada muito interessante neste Curso, pois noto uma
+                preocupação em manter os conteúdos atualizados e relevantes com novas tendências e tecnologias que vão
+                surgindo, além de nos serem apresentados temas que considero como mais-valias para o mercado
+                profissional.
+            </p>
+            <p>
+                Tenho confiança que com este Curso consiga construir uma carreira melhor para a vida, formando-me
+                com competências para (re)entrar no mercado como um aspirante <strong><i>Developer</i></strong> !
+            </p>
+        </div>
+    </article>
 {% endblock %}
-
-
-<!-- For later... maybe???! If time allows... So... not my top-priority now. Ignore this.
-    <div id="div1">
-    <h1>Exemplo1</h1>
-    </div>
-    <div id="div2">
-        <h1>Exemplo2</h1>
-    </div>
-    <div id="div3">
-        <h1>Exemplo3</h1>
-    </div>
-    <button>Click me!</button>
--->

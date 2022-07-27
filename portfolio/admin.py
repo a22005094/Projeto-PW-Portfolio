@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import *
 
-# To-Do:
 # Registar aqui todos os Modelos gerados,
 # para serem geríveis @ BackOffice Django!
 
@@ -11,7 +10,7 @@ admin.site.register(Projeto)
 admin.site.register(Tecnologia)
 admin.site.register(Competencia)
 admin.site.register(TrabalhoFinalCurso)
-admin.site.register(Blog)
+admin.site.register(BlogPost)
 admin.site.register(PontuacaoQuizz)
 admin.site.register(Formacao)
-admin.site.register(ArtigoMedium)
+admin.site.register(NoticiaMedium)

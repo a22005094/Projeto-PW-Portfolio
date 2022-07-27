@@ -3,6 +3,112 @@
 {% block page-title-head %}Contactos{% endblock %}
 {% block page-title-body %}Contactos{% endblock %}
 
+{% block css-block %}
+    <style>
+        main > * {
+            font-size: 1.8em;
+        }
+
+        .texto-intro {
+            margin-top: 10vh;
+            margin-bottom: 10vh;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 25vw;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: white;
+            padding: 20px;
+            line-height: 45px;
+            margin-top: 5vh;
+            margin-bottom: 5vh;
+        }
+
+        td:nth-child(1) {
+            width: 20%;
+            align-items: center;
+            text-align: center;
+        }
+
+        td:nth-child(2) {
+            width: 80%;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    <!--
+        <script>
+        </script>
+    -->
+{% endblock %}
+
 {% block main %}
-    (conteudo contactos)
+    <div class="texto-intro">
+        <p>
+            Estou inteiramente disponível para qualquer contacto que seja necessário.
+        </p>
+        <p>
+            Para mais informações, pode-me encontrar também pelos seguintes meios:
+        </p>
+        <br>
+        {% load static %}
+        <table>
+            <tr>
+                <td style="font-weight: bold">
+                    @
+                </td>
+                <td>
+                    <a href="mailto:rmjoaquim@outlook.com">rmjoaquim@outlook.com</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    📞
+                </td>
+                <td>
+                    (+351) 924 441 520
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold; color: steelblue">
+                    CV
+                </td>
+                <td>
+                    <a href="https://f135786a-dc38-46c9-865a-0a71ec22527c.filesusr.com/ugd/0cdac0_d8499e837242492798a0916b22da202d.pdf">
+                        <i>Curriculum Vitae</i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img width="40px" height="40px" src="{% static 'portfolio/images/icon-github.png' %}"
+                         alt="imagem github">
+                </td>
+                <td>
+                    <a href="https://github.com/a22005094">GitHub</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img width="40px" height="40px" src="{% static 'portfolio/images/icon-linkedin.png' %}"
+                         alt="imagem linkedin">
+                </td>
+                <td>
+                    <a href="https://www.linkedin.com/in/rmajoaquim/">LinkedIn</a>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <p>
+            Feedback e sugestões (até mesmo para o Website) são sempre aceites.
+        </p>
+        <p style="font-size: 2.5rem; font-weight: bold;">
+            Obrigado! 😁
+        </p>
+    </div>
 {% endblock %}

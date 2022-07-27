@@ -1,0 +1,105 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Detalhes do Projeto{% endblock %}
+{% block page-title-body %}Detalhes do Projeto{% endblock %}
+
+{% block css-block %}
+    <style>
+        /* ******* CSS para os Cards a utilizar na página *********** */
+        /* > Inicialmente esta configuração estava feita na stylesheet global "styles.css", mas como
+             esta estilização se acabou por tornar mais restrita à página da Licenciatura e Projetos,
+             decidi reorganizar e passar os estilos que são únicos, para o próprio lugar onde pertencem
+             (escusando ter definições em páginas onde não serão utilizadas...)
+
+           > Créditos no CSS-base: https://codepen.io/LucioStuder/pen/MWrKXdy.
+             Obrigado aos Professores pelas demos no CodePen! Foram bastante úteis :)
+        */
+
+        .container-projeto-details {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            min-width: 350px;
+            max-width: 25vw;
+            padding: 25px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 10px; /* arredonda os cantos */
+            box-shadow: 5px 5px 15px grey;
+            /* height: 150px; ~> deixar a página decidir a altura dos cartões */
+        }
+
+        /* configura cada paragrafo em si (cada linha) nos cartoes */
+        .container-projeto-details p {
+            margin: 10px;
+        }
+
+        /* Configura os subtitulos nos cartoes */
+        .container-projeto-details span {
+            font-weight: bold;
+        }
+
+        /* Configura as listas nestes cartoes (o que aqui se pretende é avançar mais para a frente o texto) */
+        .container-projeto-details ul {
+            display: table;
+            margin-left: 15%;
+        }
+
+        /* acrescenta um pouco de espacamento entre o header e os conteudos desta pagina */
+        main {
+            padding: 4em;
+            background-color: #edf8ff;
+        }
+
+        #section-detalhes-projeto {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            margin: 5vh;
+        }
+
+        #operacoes {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: start;
+            gap: 5vw;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    {#% load static %#}
+    <!--
+        <script>
+        </script>
+    -->
+{% endblock %}
+
+
+<!-- ::: INFO SOBRE A PÁGINA :::
+     > Lista os detalhes de um Projeto em particular.
+     > Se o utilizador estiver autenticado, é também fornecida a hipótese
+       de editar ou eliminar o Projeto da BD.
+-->
+
+{% block main %}
+    <!-- Card com os detalhes -->
+    <section id="section-detalhes-projeto">
+        {% include 'portfolio/projetos/card-projeto-details.html' with projetoView=projeto %}
+    </section>
+
+    <!-- BLOCO COM BOTOES PARA EDITAR/ELIMINAR UC -->
+    {% if request.user.is_authenticated %}
+        <hr>
+        <br>
+        <div id="operacoes">
+            <a id="btnEditar" href="{% url 'portfolio:editar-projeto' projeto.id %}">Editar Projeto</a>
+            <a id="btnEliminar" href="{% url 'portfolio:eliminar-projeto' projeto.id %}">Eliminar Projeto</a>
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+

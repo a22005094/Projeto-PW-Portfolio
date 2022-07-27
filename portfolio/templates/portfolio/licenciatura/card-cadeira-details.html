@@ -1,4 +1,4 @@
-<div class="container-cards-no-image">
+<div class="container-cadeira-details">
     <div>
         <h2 style="text-align: center">{{ unidCurricular.nome }}</h2>
         <hr>
@@ -7,7 +7,6 @@
         <p><span>• Semestre:</span> {{ unidCurricular.semestre }}</p>
         <p><span>• ECTS:</span> {{ unidCurricular.ects }}</p>
         <p><span>• Ano Letivo frequentado:</span> {{ unidCurricular.ano_letivo_freq }}</p>
-        <!-- TODO test if null -->
         <p><span>• Tópicos:</span> {{ unidCurricular.topicos }}</p>
         <p>
             <span>• Ranking:</span>
@@ -20,8 +19,8 @@
         </p>
         <p><span>• Meus Professores:</span></p>
         <ul>
-            <!-- Se o Docente tem link da Univ. Lusofona, coloca o seu nome como um link direto.
-                 Senao, coloca o nome do Docente apenas como Texto Simples -->
+            <!-- Se o Docente tem link da Univ. Lusofona, coloca o seu nome com link direto para o site.
+                 Senao, apenas coloca o nome como Texto Simples -->
             {% for docente in unidCurricular.professores.all %}
                 <li>
                     {% if docente.link_lusofona %}
@@ -36,6 +35,18 @@
         {% if unidCurricular.link_pagina %}
             <p><span>• <a href="{{ unidCurricular.link_pagina }}">Link Lusófona</a></span></p>
         {% endif %}
+
+        <!-- Só apresenta a lista de projetos, se tiver projetos associados -->
+        {% if unidCurricular.projetos.all.exists %}
+            <p><span>• Projetos:</span></p>
+            <ul>
+                <li>
+                    {% for projeto in unidCurricular.projetos.all %}
+                        <a href="{% url 'portfolio:ver-projeto' projeto.id %}">{{ projeto.titulo }}</a>
+                    {% endfor %}
+                </li>
+            </ul>
+        {% endif %}
         <p>
             <span>• Concluída:</span>
             {% if unidCurricular.feita %}
@@ -46,5 +57,3 @@
         </p>
     </div>
 </div>
-
-<!-- TODO :: boolean field :: feita? -->

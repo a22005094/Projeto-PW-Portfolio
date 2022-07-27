@@ -1,15 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Evolucao na construção das classes (Models); progresso na pág. Licenciatura">
+    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Definicao das restantes classes; Implementação das páginas do projeto (ainda alguns pendentes por rever)">
+      <change afterPath="$PROJECT_DIR$/portfolio/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0002_artigomedium_blog_competencia_formacao_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0003_projeto_competencias.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0004_formacao_link_instituicao.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0005_formacao_ano_inicio_formacao_local.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0006_rename_data_pub_blog_datahora_blog_imagem_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0007_rename_blog_blogpost.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0008_alter_blogpost_datahora.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0009_remove_blogpost_datahora.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0010_blogpost_datahora.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0011_noticiamedium_delete_artigomedium_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0012_tecnologia_tipo_tecnologia_tecnologia_usada_projeto.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0013_alter_tecnologia_contexto_usado.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0014_alter_tecnologia_acronimo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0015_alter_tecnologia_tipo_tecnologia.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/bg1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/icon-github.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/icon-linkedin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/icon-ulht.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/my_photo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/scripts/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/autenticacao/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/autenticacao/logout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/educacao.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/helpers/info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/card-cadeira-resumido.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/licenciatura.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/ver_cadeira.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/prog-web.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/card-projeto-details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/card-projeto-resumido.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/editar_projeto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/novo_projeto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/projetos.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/ver_projeto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/quiz/quiz-responder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/quiz/quiz-resultados.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/quiz/quiz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/sobre.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/static/portfolio/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/static/portfolio/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/static/portfolio/scripts/jquery-3.6.0.js" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/static/portfolio/scripts/jquery-3.6.0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/__base-page__.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/apresentacao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/competencias.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/contactos.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/contactos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/formacao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/helpers/card_unidade_curricular.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/card-cadeira-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/views.py" afterDir="false" />
     </list>
@@ -24,8 +74,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -61,10 +111,17 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio" />
+      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\quiz" />
+      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\licenciatura" />
+      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\projetos" />
+      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\helpers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio" />
-      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\static\portfolio" />
+      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\quiz" />
+      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\projetos" />
+      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\licenciatura" />
+      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\autenticacao" />
+      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\static\portfolio\images" />
     </key>
   </component>
   <component name="RunManager" selected="Django Server.Projeto_PW_a22005094">
@@ -165,6 +222,45 @@
       <workItem from="1658437045107" duration="2229000" />
       <workItem from="1658439391475" duration="4758000" />
       <workItem from="1658584247635" duration="4542000" />
+      <workItem from="1658590964575" duration="753000" />
+      <workItem from="1658591733349" duration="4253000" />
+      <workItem from="1658596028358" duration="2225000" />
+      <workItem from="1658598702585" duration="402000" />
+      <workItem from="1658599122570" duration="12653000" />
+      <workItem from="1658655143832" duration="12473000" />
+      <workItem from="1658677789257" duration="683000" />
+      <workItem from="1658678504096" duration="5538000" />
+      <workItem from="1658684099783" duration="212000" />
+      <workItem from="1658684321810" duration="1593000" />
+      <workItem from="1658685937575" duration="1013000" />
+      <workItem from="1658690290827" duration="600000" />
+      <workItem from="1658694571680" duration="688000" />
+      <workItem from="1658695275293" duration="7470000" />
+      <workItem from="1658771714837" duration="7610000" />
+      <workItem from="1658780225384" duration="835000" />
+      <workItem from="1658781088582" duration="817000" />
+      <workItem from="1658781925933" duration="6057000" />
+      <workItem from="1658790379212" duration="2635000" />
+      <workItem from="1658793044255" duration="2944000" />
+      <workItem from="1658860045447" duration="2527000" />
+      <workItem from="1658863038140" duration="437000" />
+      <workItem from="1658863486488" duration="4347000" />
+      <workItem from="1658870094019" duration="688000" />
+      <workItem from="1658870797414" duration="898000" />
+      <workItem from="1658871899598" duration="2860000" />
+      <workItem from="1658874793848" duration="1496000" />
+      <workItem from="1658876311733" duration="1218000" />
+      <workItem from="1658877547366" duration="1005000" />
+      <workItem from="1658878606003" duration="627000" />
+      <workItem from="1658879257981" duration="10313000" />
+      <workItem from="1658889667957" duration="1249000" />
+      <workItem from="1658891079363" duration="1579000" />
+      <workItem from="1658892903374" duration="913000" />
+      <workItem from="1658893833635" duration="3000000" />
+      <workItem from="1658897852421" duration="624000" />
+      <workItem from="1658898491773" duration="4963000" />
+      <workItem from="1658903850483" duration="517000" />
+      <workItem from="1658904390572" duration="260000" />
     </task>
     <task id="LOCAL-00001" summary="adicionar a estrutura-base do projeto">
       <created>1658004280625</created>
@@ -187,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658437000316</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Definicao das restantes classes (Models) do projeto (c/ fields pendentes)">
+      <created>1658591716445</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658591716445</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +311,40 @@
     <MESSAGE value="adicionar a estrutura-base do projeto" />
     <MESSAGE value="Estrutura-base de algumas páginas (ainda sujeito a novas modificações)" />
     <MESSAGE value="Evolucao na construção das classes (Models); progresso na pág. Licenciatura" />
-    <option name="LAST_COMMIT_MESSAGE" value="Evolucao na construção das classes (Models); progresso na pág. Licenciatura" />
+    <MESSAGE value="Definicao das restantes classes (Models) do projeto (c/ fields pendentes)" />
+    <MESSAGE value="Definicao das restantes classes; Implementação das páginas do projeto (ainda alguns pendentes por rever)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Definicao das restantes classes; Implementação das páginas do projeto (ainda alguns pendentes por rever)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/portfolio/views.py</url>
+          <line>290</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/portfolio/views.py</url>
+          <line>281</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/portfolio/views.py</url>
+          <line>100</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/portfolio/views.py</url>
+          <line>101</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Python.DjangoServer">
+        <watch expression="nova_pontuacao" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Projeto_PW_a22005094$main.coverage" NAME="main Coverage Results" MODIFIED="1658001529239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

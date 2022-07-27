@@ -1,0 +1,16 @@
+<div class="container-cadeira-resumido">
+    <a href="{% url 'portfolio:ver-cadeira' unidCurricular.pk %}">
+        <h2>{{ unidCurricular.nome }}</h2>
+        <hr>
+        <p>
+            <strong>Professores: </strong>
+            {% for docente in unidCurricular.professores.all %}
+                {{ docente.nome }}
+                <!-- Apresenta virgulas a separar enquanto nao for o ultimo -->
+                {% if docente != unidCurricular.professores.last %}
+                    ,
+                {% endif %}
+            {% endfor %}
+        </p>
+    </a>
+</div>

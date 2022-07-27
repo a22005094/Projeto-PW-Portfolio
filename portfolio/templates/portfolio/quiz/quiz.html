@@ -1,0 +1,82 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Quiz!{% endblock %}
+{% block page-title-body %}Quiz!{% endblock %}
+
+{% block css-block %}
+    <style>
+        .texto-intro {
+            margin-top: 10vh;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 50vw;
+            font-size: 1.4em;
+        }
+
+        .place-1 {
+            background-color: gold;
+            font-weight: bold;
+        }
+
+        .place-2 {
+            background-color: silver;
+            font-weight: bold;
+        }
+
+        .place-3 {
+            background-color: saddlebrown;
+            font-weight: bold;
+        }
+
+        #top_scores * {
+            border: 1px solid black;
+            padding: 0.5vw 1vw 0.5vw 1vw;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    <!--
+        <script>
+        </script>
+    -->
+{% endblock %}
+
+{% block main %}
+    <div class="texto-intro">
+        <p>
+            <strong>Hora do Quiz!</strong> ✍ ✅❌
+        </p>
+        <br>
+        <br>
+        {% if topscores|length > 0 %}
+            <p>Estes são os nossos 3 melhores resultados até agora:</p>
+            <br>
+            <table id="top_scores">
+                {% for score in topscores %}
+                    <tr>
+                        <td class="place-{{ forloop.counter }}">{{ forloop.counter }}º</td>
+                        <td> {{ score }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+        <br>
+        <p>
+            Preparei um Quiz simples, com algumas perguntas básicas sobre as tecnologias que foram utilizadas
+            em âmbito da Unidade Curricular de Programação Web, e inclusive neste Site.
+        </p>
+        <p>
+            Eventualmente, haverá uma ou outra pergunta sobre outras coisas no Site...
+            para ver se estavam com atenção! 😜
+        </p>
+        <br>
+        <p>
+            <strong>Aceita o desafio de tentar ficar no TOP 3 de classificações ?</strong>
+        </p>
+        <br>
+        <br>
+        <a id="btnInserir" href="{% url 'portfolio:novo-quiz' %}">Vamos lá!</a>
+        <br>
+    </div>
+{% endblock %}

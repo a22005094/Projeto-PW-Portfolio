@@ -1,0 +1,67 @@
+<div class="container-projeto-details">
+    <div>
+        <h2 style="text-align: center">{{ projetoView.titulo }}</h2>
+        <hr>
+        <br>
+        <p> {{ projetoView.descricao }} </p>
+        <br>
+        <p><span>• Ano de realização:</span> {{ projetoView.ano }}º</p>
+
+        <!-- Só apresenta a cadeira associada se tiver -->
+        {% if projetoView.cadeira %}
+            <p>
+                <span>• Unidade Curricular:</span>
+                <a href="{% url 'portfolio:ver-cadeira' projetoView.cadeira.pk %}">{{ projetoView.cadeira }}</a>
+            </p>
+        {% endif %}
+
+        <p>
+            <span>• Participantes:</span>
+            {% for participante in projetoView.participantes.all %}
+                {{ participante }}
+                <!-- Apresenta virgula entre os participantes enquanto nao for o ultimo -->
+                {% if participante != projetoView.participantes.last %}
+                    ,
+                {% endif %}
+            {% endfor %}
+        </p>
+
+        {% if projetoView.link_github %}
+            <p>
+                <span>• </span>
+                <a href="{{ projetoView.link_github }}">Link Github</a>
+            </p>
+        {% else %}
+            <p>
+                <span>• </span>
+                <i>(Sem link do projeto no Github... 😢)</i>
+            </p>
+        {% endif %}
+
+        <p>
+            <span>• Tecnologias:</span>
+        </p>
+
+        <ul>
+            {% for tecnologia in projetoView.tecnologias.all %}
+                <li>
+                    {{ tecnologia }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <p>
+            <span>• Competências adquiridas:</span>
+        </p>
+        <ul>
+            {% for competencia in projetoView.competencias.all %}
+                <li>
+                    {{ competencia }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <br>
+        <hr>
+    </div>
+</div>

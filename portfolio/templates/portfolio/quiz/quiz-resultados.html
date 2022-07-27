@@ -1,0 +1,142 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Resultados do Quiz{% endblock %}
+{% block page-title-body %}Resultados do Quiz{% endblock %}
+
+{% block css-block %}
+    <style>
+        .texto-intro {
+            margin-top: 5vh;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 60vw;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin-bottom: 5vh;
+        }
+
+        section .pergunta {
+            font-weight: bold;
+            background-color: white;
+            width: 100%;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding-top: 0.5vh;
+            padding-bottom: 0.5vh;
+        }
+
+        section .resposta {
+            width: 100%;
+            border: 2px solid green;
+            border-radius: 5px;
+            padding-top: 0.5vh;
+            padding-bottom: 0.5vh;
+        }
+
+        .score-100 {
+            color: green;
+            font-weight: bold;
+        }
+
+        /* Este bloco acabou por nao ser aplicavel neste cenário (só terá uso se introduzir novas perguntas) */
+        .score-90to99 {
+            color: yellowgreen;
+            font-weight: bold;
+        }
+
+        .score-50to89 {
+            color: limegreen;
+            font-weight: bold;
+            text-shadow: 1px 1px black;
+        }
+
+        .score-26to49 {
+            color: orangered;
+            font-weight: bold;
+        }
+
+        .score-0to25 {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    <!--
+        <script>
+        </script>
+    -->
+{% endblock %}
+
+{% block main %}
+    <div class="texto-intro">
+        <!-- Apresentar os resultados ao User -->
+        <p>Total de pontos do Quiz (obtíveis): <strong>{{ total_score_quiz }}</strong></p>
+        <p>Pontos obtidos no Quiz: <strong>{{ pontos_quiz }}</strong></p>
+        <p>Percentagem de respostas certas: <strong>{{ percentagem_certas }} %</strong></p>
+        <br>
+        {% if percentagem_certas == 100 %}
+            <p>
+                <span class="score-100">ACE! Belo quiz. Limpinho a 100%!!! 😎</span>
+            </p>
+        {% elif 90 <= percentagem_certas and percentagem_certas <= 99 %}
+            <!-- Este bloco acabou por nao ser aplicavel neste cenário (só terá uso se introduzir novas perguntas) -->
+            <p>
+                <span class="score-90to99">Muito bom! Foi perto!</span>
+            </p>
+        {% elif 50 <= percentagem_certas and percentagem_certas <= 89 %}
+            <p>
+                <span class="score-50to89">Boa! Já dá para "os mínimos"... 🤣</span>
+            </p>
+        {% elif 26 <= percentagem_certas and percentagem_certas <= 49 %}
+            <p>
+                <span class="score-26to49">Já vi pior... Não foi mau de todo!</span>
+            </p>
+        {% else %}
+            <!-- 0 a 25% -->
+            <p>
+                <span class="score-0to25">Correu mal... 😢</span>
+            </p>
+        {% endif %}
+        <p><strong>Obrigado pela participação!</strong></p>
+        <br><br>
+        <h2>RESPOSTAS DO QUIZ:</h2>
+        <br>
+        <section>
+            <!-- Pergunta 1 -->
+            <p class="pergunta">1 - Em que âmbito (Unidade Curricular) este projeto foi desenvolvido?</p>
+            <p class="resposta">Programação Web</p>
+        </section>
+
+        <section>
+            <!-- Pergunta 2 -->
+            <p class="pergunta">2 - Quais das seguintes tecnologias
+                <strong>NÃO</strong> foram utilizadas neste Site?</p>
+            <p class="resposta">Java</p>
+            <p class="resposta">Laravel</p>
+        </section>
+
+        <section>
+            <!-- Pergunta 3 -->
+            <p class="pergunta">3 - Para que serve o CSS?</p>
+            <p class="resposta">Estilizar o conteúdo das Páginas Web</p>
+        </section>
+
+        <section>
+            <!-- Pergunta 4 -->
+            <p class="pergunta">4 - Que linguagem de programação de suporte ao Back-End é utilizada no Django?</p>
+            <p class="resposta">Python</p>
+        </section>
+
+        <section>
+            <!-- Pergunta 5 -->
+            <p class="pergunta">5 - Que idade tenho?</p>
+            <p class="resposta">27!!! 😂</p>
+        </section>
+        <br>
+        <br>
+    </div>
+{% endblock %}

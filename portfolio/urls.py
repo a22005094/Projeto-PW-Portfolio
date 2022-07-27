@@ -23,10 +23,34 @@ app_name = 'portfolio'
 urlpatterns = [
     path('', views.home_view, name='home'),
     path('home', views.home_view, name='home'),
-    path('apresentacao', views.apresentacao_view, name='apresentacao'),
-    path('competencias', views.competencias_view, name='competencias'),
-    path('formacao', views.formacao_view, name='formacao'),
-    path('licenciatura', views.licenciatura_view, name='licenciatura'),
-    path('projetos', views.projetos_view, name='projetos'),
+    path('educacao', views.educacao_view, name='educacao'),
     path('contactos', views.contactos_view, name='contactos'),
+    path('about', views.about_view, name='sobre'),
+    path('blog', views.blog_view, name='blog'),
+    path('prog-web', views.prog_web_view, name='prog-web'),
+
+    # ROTAS SOBRE O QUIZ
+    path('quiz', views.quiz_view, name='quiz'),  # Abre a página inicial (apenas indica os Top scores)
+    path('novo-quiz', views.gravar_quiz_view, name='novo-quiz'),  # Mostra o Quiz e permite submeter as respostas
+    path('resultados-quiz', views.resultados_quiz_view, name='resultados-quiz'),  # Mostra os resultados do Quiz
+
+    # ROTAS CRUD - UNIDADES CURRICULARES
+    # [NOTA1] a rota para Inserir cadeira não foi gerada, porque já é tratada no POST da 'portfolio:licenciatura'.
+    # [NOTA2] a rota para Editar cadeira não foi gerada, porque já é tratada no POST da 'portfolio:ver-cadeira'.
+    path('licenciatura', views.licenciatura_view, name='licenciatura'),  # lista cadeiras & permite adicionar cadeira
+    path('cadeira/<int:cadeira_id>', views.ver_cadeira_view, name='ver-cadeira'),  # permite Ver, Editar & Remover
+    # path('cadeiras/adicionar', views.cadeira_nova_view, name='nova-cadeira'), => nao usada
+    # path('cadeiras/<int:cadeira_id>/edit', views.editar_cadeira_view, name='editar-cadeira'), => nao usada
+    path('cadeira/<int:cadeira_id>/delete', views.eliminar_cadeira_view, name='eliminar-cadeira'),
+
+    # ROTAS CRUD - PROJETOS
+    path('projetos', views.todos_projetos_view, name='todos-projetos'),
+    path('projetos/<int:projeto_id>', views.projeto_view, name='ver-projeto'),
+    path('projetos/adicionar', views.projeto_novo_view, name='novo-projeto'),
+    path('projetos/<int:projeto_id>/edit', views.editar_projeto_view, name='editar-projeto'),
+    path('projetos/<int:projeto_id>/delete', views.eliminar_projeto_view, name='eliminar-projeto'),
+
+    # ROTAS PARA AUTENTICAÇÃO
+    path('login', views.login_view, name='login'),
+    path('logout', views.logout_view, name='logout'),
 ]
