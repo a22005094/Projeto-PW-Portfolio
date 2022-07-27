@@ -2,64 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Definicao das restantes classes; Implementação das páginas do projeto (ainda alguns pendentes por rever)">
-      <change afterPath="$PROJECT_DIR$/portfolio/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0002_artigomedium_blog_competencia_formacao_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0003_projeto_competencias.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0004_formacao_link_instituicao.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0005_formacao_ano_inicio_formacao_local.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0006_rename_data_pub_blog_datahora_blog_imagem_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0007_rename_blog_blogpost.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0008_alter_blogpost_datahora.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0009_remove_blogpost_datahora.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0010_blogpost_datahora.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0011_noticiamedium_delete_artigomedium_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0012_tecnologia_tipo_tecnologia_tecnologia_usada_projeto.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0013_alter_tecnologia_contexto_usado.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0014_alter_tecnologia_acronimo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/migrations/0015_alter_tecnologia_tipo_tecnologia.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/bg1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/icon-github.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/icon-linkedin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/icon-ulht.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/images/my_photo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/static/portfolio/scripts/scripts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/autenticacao/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/autenticacao/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/blog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/educacao.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/helpers/info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/card-cadeira-resumido.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/licenciatura.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/ver_cadeira.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/prog-web.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/card-projeto-details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/card-projeto-resumido.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/editar_projeto.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/novo_projeto.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/projetos.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/ver_projeto.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/quiz/quiz-responder.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/quiz/quiz-resultados.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/quiz/quiz.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/sobre.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/apis.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/static/portfolio/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/static/portfolio/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/__base-page__.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/apresentacao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/competencias.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/contactos.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/contactos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/formacao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/helpers/card_unidade_curricular.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/card-cadeira-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/helpers/info" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/licenciatura.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/licenciatura.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/quiz/quiz.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/quiz/quiz.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/views.py" afterDir="false" />
     </list>
@@ -260,7 +211,11 @@
       <workItem from="1658897852421" duration="624000" />
       <workItem from="1658898491773" duration="4963000" />
       <workItem from="1658903850483" duration="517000" />
-      <workItem from="1658904390572" duration="260000" />
+      <workItem from="1658904390572" duration="298000" />
+      <workItem from="1658904699415" duration="299000" />
+      <workItem from="1658905010109" duration="88000" />
+      <workItem from="1658947836579" duration="9792000" />
+      <workItem from="1658960103287" duration="2517000" />
     </task>
     <task id="LOCAL-00001" summary="adicionar a estrutura-base do projeto">
       <created>1658004280625</created>
@@ -290,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658591716445</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Definicao das restantes classes; Implementação das páginas do projeto (ainda alguns pendentes por rever)">
+      <created>1658904661497</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1658904661497</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,22 +282,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/portfolio/views.py</url>
-          <line>290</line>
+          <line>295</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/portfolio/views.py</url>
-          <line>281</line>
+          <line>286</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/portfolio/views.py</url>
-          <line>100</line>
+          <line>101</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/portfolio/views.py</url>
-          <line>101</line>
+          <line>102</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>

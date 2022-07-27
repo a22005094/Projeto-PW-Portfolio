@@ -166,7 +166,7 @@ class PontuacaoQuizz(models.Model):
     pontuacao = models.IntegerField()
 
     def __str__(self):
-        return f"{self.nome} -> {self.pontuacao} pontos"
+        return f"{self.nome}: {self.pontuacao} pontos"
 
 
 # TODO

@@ -1,0 +1,267 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Testes API{% endblock %}
+{% block page-title-body %}Testes API{% endblock %}
+
+{% block css-block %}
+    <style>
+        .texto-intro {
+            margin-top: 5vh;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 70vw;
+            font-size: 1.4em;
+        }
+
+        .texto-intro section {
+            margin-bottom: 10vh;
+        }
+
+        .tema-api1 {
+            font-size: 1.2em;
+            color: orange;
+            text-shadow: 1px 1px black;
+        }
+
+        .tema-api2 {
+            font-size: 1.2em;
+            color: darkseagreen;
+            text-shadow: 2px 2px black;
+        }
+
+        .tema-api3 {
+            font-size: 1.2em;
+            color: dodgerblue;
+            text-shadow: 1px 2px black;
+        }
+
+        ol {
+            margin-left: 5vw;
+        }
+
+        .section-api-cards {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .api-info-title {
+            text-align: center;
+            font-size: 1.3em;
+            color: orange;
+        }
+
+        .div-api-info {
+            padding-top: 3vh;
+            padding-bottom: 3vh;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            opacity: 80%;
+            border: 2px solid black;
+            width: 25vw;
+            margin: 5vh 5vw;
+            border-radius: 10px;
+        }
+
+        .div-api-info select {
+            width: 50%;
+            font-size: 1.1em;
+        }
+
+        .last-api {
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 2vw;
+            padding-right: 2vw;
+        }
+
+        .api-ipma-results {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .api-ipma-results p:first-child {
+            color: blue;
+        }
+
+        .api-ipma-results p:last-child {
+            color: orangered;
+        }
+
+        #tempMin, #tempMax {
+            font-size: 1.5em;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            /* API IPMA */
+            let cbIPMA = document.getElementById("api-ipma");
+            cbIPMA.onchange = () => {
+                /* Ao mudar interroga o IPMA da previsão nesse distrito */
+                fetch("https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/" + cbIPMA.value + ".json")
+                    .then((response) => response.json())
+                    .then((dados) => {
+                        /* Este pedido devolve a previsao para hoje e 4 dias seguintes.
+                           Basta ir buscar a primeira posicao desse Array, corresponde sempre ao dia de hoje */
+                        document.querySelector("#tempMin").innerHTML = dados["data"][0]["tMin"]
+                        document.querySelector("#tempMax").innerHTML = dados["data"][0]["tMax"]
+                    });
+            };
+
+            /* API Exchange Rates => código baseado na Live Demo oferecida pela ApiLayer (quem forneceu a ApiKey) */
+            /* Configurei para obter apenas as moedas: GBP, BRL, USD, CAD */
+
+            let cbXchange = document.getElementById("api-xchange");
+            cbXchange.onchange = () => {
+                let myHeaders = new Headers();
+                myHeaders.append("apikey", "g97ir0QGGUwgx8Pckrhp43M2qyVfSuyO");
+
+                let requestOptions = {
+                    method: 'GET',
+                    redirect: 'follow',
+                    headers: myHeaders
+                };
+
+                fetch("https://api.apilayer.com/exchangerates_data/latest?symbols=GBP%2CBRL%2CUSD%2CCAD&base=EUR",
+                    requestOptions)
+                    .then(response => response.json())
+                    .then(result => {
+                        document.querySelector("#exchangeResult").innerHTML =
+                            result["rates"][cbXchange.value].toFixed(2) + cbXchange.value;
+                    })
+            }
+
+            /*
+               API "Frases Inspiradoras & Quotes"
+               Código-base obtido pela DEMO da documentação desta API.
+               Link para referencia: https://rapidapi.com/martin.svoboda/api/quotes15/
+            */
+
+            document.getElementById("btnNovaFrase").onclick = () => {
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        'X-RapidAPI-Key': '19e6976775mshec47d479e9ec1d3p14c46ajsn6e7652b724fc',
+                        'X-RapidAPI-Host': 'quotes15.p.rapidapi.com'
+                    }
+                };
+
+                fetch('https://quotes15.p.rapidapi.com/quotes/random/?language_code=pt', options)
+                    .then(response => response.json())
+                    .then(response => document.querySelector("#quoteResult").innerHTML = response["content"]);
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block main %}
+    <div class="texto-intro">
+        <section>
+            <hr>
+            <h3 class="subtitulos-color" style="text-align: center;">
+                Alguns testes com APIs ⚙️💻️
+            </h3>
+            <hr>
+            <p>
+                Nesta página tem a possibilidade de experimentar algumas APIs que aqui integrei, para testes.
+            </p>
+            <br>
+            <p>
+                Uma API (Application Programming Interface) fornece conjuntos de <i>interfaces</i> que
+                abstraem complexidade de código em simples pontos de acesso a recursos hospedados
+                por um servidor, permitindo que estes acessos sejam feitos de forma facilitada e com pouco esforço
+                por parte do consumidor (Cliente). Existem inúmeras APIs disponibilizadas pela Internet, sendo muitas
+                delas gratuitas, existindo também outras só disponíveis através de subscrição paga.
+            </p>
+            <br>
+            <p>
+                Isto permite-nos, de uma forma simples, interrogar dados sobre temas que nos interessem, e permite-nos
+                a partir dos dados "consumidos", colocá-los por exemplo numa página Web. Trago aqui três exemplos
+                que achei interessantes:
+            </p>
+            <br>
+            <ol>
+                <li><strong class="tema-api1">API do IPMA</strong> - Consultar a meteorologia de Hoje,
+                    pesquisando por um distrito 🌥️
+                </li>
+                <li><strong class="tema-api2">API de taxas de intercâmbio de moedas 🪙💰</strong>
+                    (para saber por exemplo, o valor do $USD face ao €EUR)
+                </li>
+                <li>Entre tantas outras que existem... temos por exemplo... APIs para <strong class="tema-api3">frases
+                    inspiradoras! 😎</strong>
+                </li>
+            </ol>
+        </section>
+
+        <section class="section-api-cards">
+            <div class="div-api-info">
+                <p class="tema-api1"><strong>Meteorologia</strong></p>
+                <br>
+                <label for="api-ipma">Selecione um distrito:</label>
+                <select id="api-ipma">
+                    <option disabled selected>--Selecionar...--</option>
+                    <option value="1131200">Porto</option>
+                    <option value="1050200">Castelo Branco</option>
+                    <option value="1110600">Lisboa</option>
+                    <option value="1080500">Faro</option>
+                </select>
+                <br>
+                <div class="api-ipma-results">
+                    <p>
+                        Mín.
+                        <span id="tempMin">--</span>
+                        ºC
+                    </p>
+                    <p>
+                        Máx.
+                        <span id="tempMax">--</span>
+                        ºC
+                    </p>
+                </div>
+                <br>
+                <sub><i>Dados fornecidos por: <a href="http://api.ipma.pt/">http://api.ipma.pt/</a></i></sub>
+            </div>
+
+            <div class="div-api-info">
+                <p class="tema-api2"><strong>Valor da Moeda</strong></p>
+                <br>
+                <label for="api-xchange">Selecione uma Moeda:</label>
+                <select id="api-xchange">
+                    <option disabled selected>--Selecionar...--</option>
+                    <option value="BRL">Real Brasileiro (BRL)</option>
+                    <option value="CAD">Dólar Canadiano (CAD)</option>
+                    <option value="GBP">Libra Inglesa (GBP)</option>
+                    <option value="USD">Dólar Americano (USD)</option>
+                </select>
+                <br>
+                <p><strong>1 EUR = <span id="exchangeResult">--</span></strong></p>
+                <br>
+                <sub><i>Dados fornecidos por: <a href="https://apilayer.com/">https://apilayer.com/</a></i></sub>
+            </div>
+
+            <div class="div-api-info last-api">
+                <p class="tema-api3"><strong>Carregar Frases</strong></p>
+                <br>
+                <button id="btnNovaFrase" class="btnSubmeterForm">Carregar outra frase</button>
+                <br><br>
+                <p><i><strong><span id="quoteResult">--</span></strong></i></p>
+                <br>
+                <br>
+                <sub><i>Dados fornecidos por: <a
+                        href="https://rapidapi.com/martin.svoboda/api/quotes15/">rapidApi</a></i></sub>
+            </div>
+        </section>
+        <br>
+        <br>
+    </div>
+{% endblock %}

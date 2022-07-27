@@ -27,6 +27,7 @@ urlpatterns = [
     path('contactos', views.contactos_view, name='contactos'),
     path('about', views.about_view, name='sobre'),
     path('blog', views.blog_view, name='blog'),
+    path('api', views.api_view, name='api'),
     path('prog-web', views.prog_web_view, name='prog-web'),
 
     # ROTAS SOBRE O QUIZ

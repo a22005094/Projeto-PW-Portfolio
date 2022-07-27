@@ -24,13 +24,19 @@
         }
 
         .place-3 {
-            background-color: saddlebrown;
+            background-color: #c9923e;
             font-weight: bold;
         }
 
         #top_scores * {
-            border: 1px solid black;
+            border: 2px solid black;
+            border-radius: 5px;
             padding: 0.5vw 1vw 0.5vw 1vw;
+        }
+
+        #top_scores td:last-child {
+            width: 20vw;
+            text-wrap: normal;
         }
     </style>
 {% endblock %}
@@ -55,7 +61,7 @@
             <table id="top_scores">
                 {% for score in topscores %}
                     <tr>
-                        <td class="place-{{ forloop.counter }}">{{ forloop.counter }}º</td>
+                        <td class="place-{{ forloop.counter }}">{{ forloop.counter }}º lugar</td>
                         <td> {{ score }}</td>
                     </tr>
                 {% endfor %}

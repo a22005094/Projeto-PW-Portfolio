@@ -60,6 +60,7 @@ def licenciatura_view(request):
         if form.is_valid():
             # OK! Processar insercao da nova UnidadeCurricular e recarregar dados da página
             form.save()
+            return HttpResponseRedirect(reverse('portfolio:licenciatura'))
         else:
             form_fields = form
     else:
@@ -193,6 +194,10 @@ def blog_view(request):
     posts = BlogPost.objects.all().order_by('-dataHora')
     context = {'posts': posts, 'form': form}
     return render(request, 'portfolio/blog.html', context)
+
+
+def api_view(request):
+    return render(request, 'portfolio/apis.html')
 
 
 def prog_web_view(request):
