@@ -60,6 +60,39 @@
 
 {% block main %}
     <div class="texto-intro">
+
+        <section>
+            <hr>
+            <h3 class="subtitulos-color" style="text-align: center;">
+                Vídeos do Youtube
+            </h3>
+            <hr>
+            <br>
+            <p>
+                Devido a restrições impostas sobre o carregamento diário de vídeos no Youtube,
+                tive de colocar os vídeos em 3 playlists diferentes. Os links para as mesmas são:
+            </p>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=L_RKmP3YTY4&list=PLyeb5_2fSnTG1lfcZOsGx1Swp1rS-fJmd">PARTE
+                        1</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=KRLBpWXfIZ8&list=PL4C7AOAYNuULKT6yr7Y87_EMumYoQR0VE">PARTE
+                        2</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=iCZDrigsgkA&list=PLZSnNd3h615brbjQTl2pTbTCYNYYyi0A9">PARTE
+                        3</a>
+                </li>
+            </ul>
+            <p>
+                Peço p.f. que me contacte caso encontre algum problema em reproduzir as playlists que aqui publiquei.
+                Obrigado.
+            </p>
+            <br>
+        </section>
+
         <section>
             <hr>
             <h3 class="subtitulos-color" style="text-align: center;">
@@ -162,7 +195,7 @@
                         <span class="subtitulos">
                             Tipo:
                         </span>
-                        {{ tecnologia.tipo_tecnologia }}
+                        {{ tecnologia.get_tipo_tecnologia_display }}
                     </p>
                     <p>
                         <span class="subtitulos">
@@ -181,21 +214,7 @@
                     </p>
                 </section>
             {% endfor %}
-
-
         </section>
-
-
-        <!--
-        <div class="below-content">
-            <ul>
-                <li>
-
-                </li>
-
-            </ul>
-        </div>
-        -->
 
         <br>
         <br>

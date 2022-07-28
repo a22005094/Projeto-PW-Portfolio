@@ -155,7 +155,8 @@ class BlogPost(models.Model):
     dataHora = models.DateTimeField(default=datetime.datetime.now)
     titulo = models.CharField(max_length=50)
     texto = models.TextField(max_length=500)
-    #imagem = models.ImageField(blank=True) # TODO
+
+    # imagem = models.ImageField(blank=True) # TODO
 
     def __str__(self):
         return self.titulo
@@ -184,16 +185,6 @@ class TrabalhoFinalCurso(models.Model):
     link_youtube = models.TextField(max_length=300, blank=True)
 
     # imagem => TODO
-
-    def __str__(self):
-        return self.titulo
-
-
-# TODO
-class NoticiaMedium(models.Model):
-    titulo = models.CharField(max_length=50)
-    descricao = models.CharField(max_length=150)  # RESUMIDO! 3 linhas
-    link_artigo = models.TextField(max_length=300)
 
     def __str__(self):
         return self.titulo
