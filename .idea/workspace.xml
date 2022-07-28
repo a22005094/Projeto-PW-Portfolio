@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Adicionar dependencias para fazer hosting do projeto no Heroku">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/card-projeto-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/projetos/card-projeto-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/sobre.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/sobre.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/tfcs/card-tfc-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/tfcs/card-tfc-details.html" afterDir="false" />
-    </list>
+    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Commit com alterações finais" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -222,7 +213,7 @@
       <workItem from="1659023131489" duration="2753000" />
       <workItem from="1659026016827" duration="1674000" />
       <workItem from="1659032320110" duration="6698000" />
-      <workItem from="1659041350215" duration="4396000" />
+      <workItem from="1659041350215" duration="4484000" />
     </task>
     <task id="LOCAL-00001" summary="adicionar a estrutura-base do projeto">
       <created>1658004280625</created>
@@ -294,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659026185276</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Commit com alterações finais">
+      <created>1659046863301</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1659046863301</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +322,8 @@
     <MESSAGE value="Inserir novos conteúdos que havia esquecido" />
     <MESSAGE value="Adicionar a parte dos TFCs, que estava em falta" />
     <MESSAGE value="Adicionar dependencias para fazer hosting do projeto no Heroku" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionar dependencias para fazer hosting do projeto no Heroku" />
+    <MESSAGE value="Commit com alterações finais" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit com alterações finais" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
