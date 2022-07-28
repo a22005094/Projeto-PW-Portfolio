@@ -51,6 +51,12 @@ urlpatterns = [
     path('projetos/<int:projeto_id>/edit', views.editar_projeto_view, name='editar-projeto'),
     path('projetos/<int:projeto_id>/delete', views.eliminar_projeto_view, name='eliminar-projeto'),
 
+    # ROTAS CRUD - TFCs
+    path('tfcs', views.todos_tfcs_view, name='todos-tfcs'),  # permite Consultar lista TFCs + Inserir TFC
+    path('tfcs/<int:tfc_id>', views.ver_tfc_view, name='ver-tfc'),  # permite consultar um TFC + Editar o TFC
+    # esta rota abaixo permite Eliminar o TFC consultado @ portfolio:ver-tfc
+    path('tfcs/<int:tfc_id>/delete', views.eliminar_tfc_view, name='eliminar-tfc'),
+
     # ROTAS PARA AUTENTICAÇÃO
     path('login', views.login_view, name='login'),
     path('logout', views.logout_view, name='logout'),

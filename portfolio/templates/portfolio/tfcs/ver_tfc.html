@@ -6,22 +6,19 @@
 {% block css-block %}
     <style>
         /* ******* CSS para os Cards a utilizar na página *********** */
-        /* > Inicialmente esta configuração estava feita na stylesheet global "styles.css", mas como
-             esta estilização se acabou por tornar única para esta página da Licenciatura,
-             decidi reorganizar e passar os estilos que são únicos, para o próprio lugar onde pertencem
-             (escusando ter definições em páginas onde não serão utilizadas...)
-
+        /*
+           > CSS muito semelhante à página ver_cadeira e à ver_projeto.
            > Créditos no CSS-base: https://codepen.io/LucioStuder/pen/MWrKXdy.
              Obrigado aos Professores pelas demos no CodePen! Foram bastante úteis :)
         */
 
-        .container-cadeira-details {
+        .container-tfc-details {
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
             align-items: center;
-            min-width: 350px;
-            max-width: 25vw;
+            min-width: 35vw;
+            max-width: 60vw;
             padding: 25px;
             margin: 10px;
             background-color: white;
@@ -31,19 +28,24 @@
         }
 
         /* configura cada paragrafo em si (cada linha) nos cartoes */
-        .container-cadeira-details p {
+        .container-tfc-details p {
             margin: 10px;
         }
 
         /* Configura os subtitulos nos cartoes */
-        .container-cadeira-details span {
+        .container-tfc-details span {
             font-weight: bold;
         }
 
         /* Configura as listas nestes cartoes (o que aqui se pretende é avançar mais para a frente o texto) */
-        .container-cadeira-details ul {
+        .container-tfc-details ul {
             display: table;
             margin-left: 15%;
+        }
+
+        .container-tfc-details div {
+            /* Fazer as DIVs ocuparem o comprimento total do seu parent */
+            width: 100%;
         }
 
         /* acrescenta um pouco de espacamento entre o header e os conteudos desta pagina */
@@ -52,21 +54,21 @@
             background-color: #edf8ff;
         }
 
-        #section-detalhes-cadeira {
+        #section-detalhes-tfc {
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
             margin: 5vh;
         }
 
-        /* Configurações para o formulário de Editar Unidade Curricular */
-        #seccao-editar-cadeira {
+        /* Configurações para o formulário de Editar TFC */
+        #seccao-editar-tfc {
             border: 2px solid black;
             padding: 1vw 1vh;
             max-width: 40vw;
         }
 
-        #seccao-editar-cadeira h1 {
+        #seccao-editar-tfc h1 {
             font-size: 2.0em;
             text-align: center;
         }
@@ -95,31 +97,28 @@
     -->
 {% endblock %}
 
-
 <!-- ::: INFO SOBRE A PÁGINA :::
-     > Lista os detalhes de uma Unidade Curricular em particular.
+     > Lista os detalhes de um TFC particular.
      > Se o utilizador estiver autenticado, é também fornecido um formulário
-       para edição dos campos, e um botão para eliminar a Unidade Curricular da BD.
+       para edição dos campos, e um botão para eliminar o TFc da Base de Dados.
 -->
-
-
 
 {% block main %}
 
-    <section id="section-detalhes-cadeira">
-        {% include 'portfolio/licenciatura/card-cadeira-details.html' with unidCurricular=cadeira %}
+    <section id="section-detalhes-tfc">
+        {% include 'portfolio/tfcs/card-tfc-details.html' with tfcView=tfc %}
     </section>
 
-    <!-- BLOCO PARA EDITAR/ELIMINAR UC -->
+    <!-- BLOCO PARA EDITAR/ELIMINAR TFC -->
     {% if request.user.is_authenticated %}
         <hr>
         <br>
         <div id="operacoes">
-            <section id="seccao-editar-cadeira">
-                <h1>Alterar dados da UC</h1>
+            <section id="seccao-editar-tfc">
+                <h1>Alterar dados do Trab. Final de Curso</h1>
                 <hr>
                 <br>
-                <form action="" method="post"> {#% url 'tarefas:nova' %#}
+                <form action="" method="post">
                     {% csrf_token %}
                     <table>
                         {{ form.as_table }}
@@ -133,10 +132,11 @@
                 </form>
             </section>
 
-            <form action="{% url 'portfolio:eliminar-cadeira' cadeira.pk %}" method="post">
+            <form action="{% url 'portfolio:eliminar-tfc' tfc.pk %}" method="post">
                 {% csrf_token %}
-                <button id="btnEliminar" type="submit" name="submeter" value="submeter">Eliminar UC</button>
+                <button id="btnEliminar" type="submit" name="submeter" value="submeter">Eliminar TFC</button>
             </form>
         </div>
     {% endif %}
+
 {% endblock %}

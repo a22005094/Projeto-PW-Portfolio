@@ -1,0 +1,136 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block page-title-head %}Lista de TFCs{% endblock %}
+{% block page-title-body %}Lista de TFCs{% endblock %}
+
+{% block css-block %}
+    <style>
+        /* ******* CSS a aplicar sobre os Cards a utilizar na página ******* */
+
+        /* acrescenta um pouco de espacamento entre o header e os conteudos desta pagina */
+        main {
+            padding: 4em;
+            background-color: #edf8ff;
+        }
+
+        .container-tfcs {
+            background-color: rgba(255, 255, 255, 40%);
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-bottom: 4vh;
+            min-width: 70vw;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: start;
+            align-items: center;
+        }
+
+        /* Estilização dos Cartões da lista dos TFCs */
+        .container-projeto-resumido {
+            border: 1px solid black;
+            text-align: center;
+            min-width: 200px;
+            max-width: 25vw;
+            /* height: 150px; ~> deixar a página decidir a altura dos cartões */
+            padding: 30px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 15px; /* arredonda os cantos */
+            box-shadow: 5px 5px 15px grey;
+        }
+
+        .container-projeto-resumido * {
+            text-decoration: none;
+            color: black;
+        }
+
+        #texto-intro-pagina {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 5vh;
+        }
+
+        #zona-autenticada {
+            display: flex;
+            justify-content: end;
+        }
+
+        /* ********************************************************** */
+        /* PARTE ADMINISTRATIVA (inserir novo TFC) */
+        /* Configurações para o formulário de Novo Trabalho Final de Curso */
+        #seccao-novo-tfc {
+            border: 2px solid black;
+            padding: 1vw 1vh;
+            max-width: 30vw;
+            margin: 0 auto;
+        }
+
+        #seccao-novo-tfc h2 {
+            font-size: 2.0em;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block script-block %}
+    {#% load static %#}
+    <!-- <script></script> -->
+{% endblock %}
+
+<!-- ::: INFO SOBRE A PÁGINA :::
+     > Listagem dos TFCs armazenados em BD, em formato resumido
+     > Inspirado na página de Projetos (projetos.html)
+     > Selecionando um dos cartões expande os detalhes desse projeto, podendo alterá-lo / eliminar.
+     > Users autenticados também podem aqui inserir novos TFCs.
+-->
+
+{% block main %}
+    <section id="texto-intro-pagina">
+        <hr>
+        <p>
+            Nesta página pode consultar TFCs de ex-colegas do nosso Curso, que tive oportunidade de consultar
+            e considerar interessantes de destacar em <i>showcase</i> aqui.
+        </p>
+        <p>
+            Se estiver autenticado, no fundo desta página terá a oportunidade de inserir novos TFCs.
+        </p>
+        <p>
+            Selecionando um dos TFCs aqui listados abre uma nova página com os seus detalhes.
+        </p>
+        <p>
+            Também, se estiver autenticado, poderá editar os dados de cada Trabalho, ou até mesmo eliminar o TFC.
+        </p>
+        <hr>
+    </section>
+
+    <section>
+        <div class="container-tfcs">
+            {% for tfc in lista_tfcs %}
+                {% include 'portfolio/tfcs/card-tfc-resumido.html' with tfcView=tfc %}
+            {% endfor %}
+        </div>
+    </section>
+    <br>
+    <!-- BLOCO PARA INSERIR NOVO TFC (Utilizadores autenticados) -->
+    {% if request.user.is_authenticated %}
+        <hr>
+        <br>
+        <section id="seccao-novo-tfc">
+            <h2>Inserir novo Trab. Final de Curso</h2>
+            <hr>
+            <br>
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <br>
+                <div class="form-buttons">
+                    <a id="btnCancelar" href="">Cancelar</a>
+                    <input class="btnSubmeterForm" type="submit" value="Adicionar novo TFC">
+                </div>
+            </form>
+        </section>
+    {% endif %}
+{% endblock %}
+

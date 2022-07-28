@@ -169,13 +169,12 @@ class PontuacaoQuizz(models.Model):
         return f"{self.nome}: {self.pontuacao} pontos"
 
 
-# TODO
 class TrabalhoFinalCurso(models.Model):
     """
         Classe para descrever projetos desenvolvidos por ex-colegas do nosso Curso,
         desenvolvidos na componente de Projeto Final em âmbito da Unidade Curricular de TFC.
     """
-    titulo = models.CharField(max_length=20)
+    titulo = models.CharField(max_length=50)
     autores = models.ManyToManyField(Pessoa, related_name='autor_tfc')
     orientadores = models.ManyToManyField(Pessoa, related_name='orientador_tfc')
     ano_realizado = models.IntegerField()

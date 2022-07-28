@@ -7,18 +7,6 @@ class UnidadeCurricularForm(ModelForm):
         model = UnidadeCurricular
         fields = '__all__'
 
-        # ferramentas
-        # widgets = {
-        #    'titulo': forms.TextInput(attrs={
-        #    'class': 'form-control',
-        #    'placeholder': 'descrição da tarefa...'}),
-        #
-        #    'prioridade': forms.NumberInput(attrs={
-        #    'class': 'form-control' ,
-        #    'max': 3,
-        #    'min': 1}),
-        # }
-
         help_texts = {
             'nome': 'Máx. 50 caracteres',
             'ano': 'Insira o ano do curso (de 1 a 3)',
@@ -44,6 +32,13 @@ class ProjetoForm(ModelForm):
         model = Projeto
         fields = '__all__'
 
+        labels = {
+            'titulo': 'Título',
+            'descricao': 'Descrição',
+            'link_github': 'Link do Github',
+            'competencias': 'Competências'
+        }
+
         help_texts = {
             'titulo': 'Máx. 20 caracteres',
             'descricao': 'Máx. 500 caracteres',
@@ -56,21 +51,28 @@ class ProjetoForm(ModelForm):
         }
 
 
-# TODO finish
 class TrabalhoFinalCursoForm(ModelForm):
     class Meta:
         model = TrabalhoFinalCurso
         fields = '__all__'
 
+        labels = {
+            'titulo': 'Título',
+            'ano_realizado': 'Ano',
+            'sumario': 'Sumário',
+            'link_github': 'Link do Github',
+            'link_youtube': 'Link do Youtube',
+        }
+
         help_texts = {
-            # 'titulo': 'Máx. 20 caracteres',
-            # 'descricao': 'Máx. 500 caracteres',
-            # 'ano': 'Ano de realização do projeto',
-            # 'cadeira': 'De que UC foi âmbito?',
-            # 'participantes': 'Pode selecionar vários participantes (CTRL-Click)',
-            # 'link_github': '(O link é opcional)',
-            # 'tecnologias': 'Pode selecionar várias tecnologias (CTRL-Click)',
-            # 'competencias': 'Pode selecionar várias competências (CTRL-Click)',
+            'titulo': 'Máx. 50 caracteres',
+            'autores': 'Pode selecionar vários autores (CTRL-Click)',
+            'orientadores': 'Pode selecionar vários orientadores (CTRL-Click)',
+            'ano_realizado': 'Em que ano foi realizado?',
+            'sumario': 'Máx. 150 caracteres',
+            'resumo': 'Máx. 500 caracteres',
+            'link_github': '(O link é opcional)',
+            'link_youtube': '(O link é opcional)',
         }
 
 
@@ -78,7 +80,7 @@ class BlogPostForm(ModelForm):
     class Meta:
         model = BlogPost
         fields = '__all__'
-        exclude = ['dataHora']  # retira do Form o campo da DataHora, pois é insercao automatica
+        exclude = ['dataHora']  # retira do Form o campo da DataHora, pois vai ser insercao automatica (default value)
         labels = {
             'autor': 'Nome',
             'titulo': 'Título'

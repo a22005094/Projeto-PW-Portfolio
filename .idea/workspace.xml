@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Commit da página APIs que estava a faltar. Pequenas correcoes noutras páginas.">
+    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Inserir novos conteúdos que havia esquecido">
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/tfcs/tfcs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/tfcs/ver_tfc.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/contactos.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/contactos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/educacao.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/educacao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/ver_cadeira.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/ver_cadeira.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,17 +54,17 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/RJ/Desktop/Ano2Sem2/Projeto_PW_a22005094/portfolio/templates/portfolio&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/RJ/Desktop/Ano2Sem2/Projeto_PW_a22005094/portfolio/templates/portfolio/tfcs&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\tfcs" />
       <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio" />
       <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\quiz" />
       <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\licenciatura" />
       <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\projetos" />
-      <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\helpers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\RJ\Desktop\Ano2Sem2\Projeto_PW_a22005094\portfolio\templates\portfolio\quiz" />
@@ -211,6 +218,9 @@
       <workItem from="1659013856937" duration="2069000" />
       <workItem from="1659015948474" duration="482000" />
       <workItem from="1659016515212" duration="94000" />
+      <workItem from="1659016619971" duration="660000" />
+      <workItem from="1659018344114" duration="3109000" />
+      <workItem from="1659021482397" duration="1628000" />
     </task>
     <task id="LOCAL-00001" summary="adicionar a estrutura-base do projeto">
       <created>1658004280625</created>
@@ -254,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658962758916</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Inserir novos conteúdos que havia esquecido">
+      <created>1659018197702</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1659018197702</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,30 +295,21 @@
     <MESSAGE value="Definicao das restantes classes (Models) do projeto (c/ fields pendentes)" />
     <MESSAGE value="Definicao das restantes classes; Implementação das páginas do projeto (ainda alguns pendentes por rever)" />
     <MESSAGE value="Commit da página APIs que estava a faltar. Pequenas correcoes noutras páginas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit da página APIs que estava a faltar. Pequenas correcoes noutras páginas." />
+    <MESSAGE value="Inserir novos conteúdos que havia esquecido" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inserir novos conteúdos que havia esquecido" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/portfolio/views.py</url>
-          <line>295</line>
+          <line>334</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/portfolio/views.py</url>
-          <line>286</line>
+          <line>325</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/portfolio/views.py</url>
-          <line>101</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/portfolio/views.py</url>
-          <line>102</line>
-          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

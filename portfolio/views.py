@@ -169,6 +169,45 @@ def eliminar_projeto_view(request, projeto_id):
     return HttpResponseRedirect(reverse('portfolio:todos-projetos'))
 
 
+# ROTAS SOBRE TFCs
+def todos_tfcs_view(request):
+    lista_tfcs = TrabalhoFinalCurso.objects.all()
+    formTFC = TrabalhoFinalCursoForm(request.POST or None)
+
+    # Se a rota foi lançada por submissão de formulário (POST),
+    #  verificar se os dados estão válidos e em caso afirmativo, grava os dados
+    #  e relança a página
+    if formTFC.is_valid():
+        formTFC.save()
+        return HttpResponseRedirect(reverse('portfolio:todos-tfcs'))
+
+    context = {'lista_tfcs': lista_tfcs, 'form': formTFC}
+    return render(request, 'portfolio/tfcs/tfcs.html', context)
+
+
+def ver_tfc_view(request, tfc_id):
+    # Se a rota foi lançada por submissão de formulário (POST),
+    # verificar se os dados estão válidos e em caso afirmativo, grava os dados
+    # e volta à lista de TFCs
+
+    tfc = TrabalhoFinalCurso.objects.get(pk=tfc_id)
+    formTFC = TrabalhoFinalCursoForm(request.POST or None, instance=tfc)
+
+    if formTFC.is_valid():
+        formTFC.save()
+        return HttpResponseRedirect(reverse('portfolio:todos-tfcs'))
+
+    context = {'tfc': tfc, 'form': formTFC}
+    return render(request, 'portfolio/tfcs/ver_tfc.html', context)
+
+
+@login_required
+def eliminar_tfc_view(request, tfc_id):
+    tfc = TrabalhoFinalCurso.objects.get(id=tfc_id)
+    tfc.delete()
+    return HttpResponseRedirect(reverse('portfolio:todos-tfcs'))
+
+
 # OUTRAS ROTAS
 
 def contactos_view(request):
