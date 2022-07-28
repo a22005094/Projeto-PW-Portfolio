@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Adicionar dependencias para fazer hosting do projeto no Heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +214,7 @@
       <workItem from="1659018344114" duration="3109000" />
       <workItem from="1659021482397" duration="1628000" />
       <workItem from="1659023131489" duration="2753000" />
-      <workItem from="1659026016827" duration="769000" />
+      <workItem from="1659026016827" duration="1307000" />
     </task>
     <task id="LOCAL-00001" summary="adicionar a estrutura-base do projeto">
       <created>1658004280625</created>

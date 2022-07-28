@@ -155,7 +155,7 @@ class BlogPost(models.Model):
     dataHora = models.DateTimeField(default=datetime.datetime.now)
     titulo = models.CharField(max_length=50)
     texto = models.TextField(max_length=500)
-    imagem = models.ImageField(blank=True)
+    #imagem = models.ImageField(blank=True) # TODO
 
     def __str__(self):
         return self.titulo
