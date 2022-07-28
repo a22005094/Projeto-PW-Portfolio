@@ -1,6 +1,7 @@
 <!-- PÁGINA DE LAYOUT ("master") PARA TODAS AS PÁGINAS DA WebApp -->
 
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block page-title-head %}{% endblock %}</title>
 
-    {% load static %}
     <!-- ***** FavIcon ***** -->
     <link rel="icon" href="{% static 'portfolio/images/favicon.ico' %}">
     <!-- ***** CSS ***** -->

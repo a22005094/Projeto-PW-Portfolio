@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Inserir novos conteúdos que havia esquecido">
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/tfcs/tfcs.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/tfcs/ver_tfc.html" afterDir="false" />
+    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Adicionar a parte dos TFCs, que estava em falta">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/ver_cadeira.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/licenciatura/ver_cadeira.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,6 +216,7 @@
       <workItem from="1659016619971" duration="660000" />
       <workItem from="1659018344114" duration="3109000" />
       <workItem from="1659021482397" duration="1628000" />
+      <workItem from="1659023131489" duration="2753000" />
     </task>
     <task id="LOCAL-00001" summary="adicionar a estrutura-base do projeto">
       <created>1658004280625</created>
@@ -271,11 +267,28 @@
       <option name="project" value="LOCAL" />
       <updated>1659018197702</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Adicionar a parte dos TFCs, que estava em falta">
+      <created>1659023773710</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1659023773710</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Adicionar a parte dos TFCs, que estava em falta">
+      <created>1659023812891</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1659023812891</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -296,7 +309,8 @@
     <MESSAGE value="Definicao das restantes classes; Implementação das páginas do projeto (ainda alguns pendentes por rever)" />
     <MESSAGE value="Commit da página APIs que estava a faltar. Pequenas correcoes noutras páginas." />
     <MESSAGE value="Inserir novos conteúdos que havia esquecido" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inserir novos conteúdos que havia esquecido" />
+    <MESSAGE value="Adicionar a parte dos TFCs, que estava em falta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionar a parte dos TFCs, que estava em falta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

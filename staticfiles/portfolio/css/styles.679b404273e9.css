@@ -1,0 +1,208 @@
+/* Classes CSS a usar no projeto.
+    Tomei a liberdade de usar como inspiração e como base os exemplos fornecidos pelos docentes no enunciado do Lab8,
+    por ter considerado interessante e por ter a aplicação de boas práticas em CSS.
+*/
+
+/* Configurações e boas práticas a aplicar por toda a página */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Todos os links em hover devem tomar a cor selecionada */
+
+a:visited {
+    color: dodgerblue;
+}
+
+nav a:active {
+    color: darkgreen;
+}
+
+nav a:hover {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+a:hover {
+    color: darkblue;
+}
+
+/* *** CONFIGURAÇÃO CSS GRID NA PÁGINA *** */
+.grid-container {
+    /* colocar o container da grid a ocupar aproximadamente a totalidade da viewport (contem toda a página em si) */
+    width: 99vw;
+    height: 100vh;
+
+    /* configurar CSS grid */
+    display: grid;
+    grid-template-rows: 10vh 3fr 5vh;
+    grid-template-columns: auto auto auto;
+    grid-template-areas: 'headerGrid headerGrid headerGrid'
+                         'mainGrid mainGrid mainGrid'
+                         'footerGrid footerGrid footerGrid';
+    /*
+    grid-gap: 10px;
+    padding: 10px;
+    */
+}
+
+.layout-header {
+    grid-area: headerGrid;
+}
+
+.layout-main {
+    grid-area: mainGrid;
+}
+
+.layout-footer {
+    grid-area: footerGrid;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ********** Fim config CSS grid ********** */
+
+/* ****** Configurações secções do Template ****** */
+header {
+    background: #ebf6ff;
+    opacity: 80%;
+    top: 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+
+    /* alinhar items da barra do header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Acrescentar ao header a propriedade sticky, para ao fazer scrolling, manter a barra no sitio */
+    position: sticky !important;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5vw;
+}
+
+/*
+    nav a:first-child {
+        border-left: 2px solid grey;
+    }
+*/
+
+nav a {
+    padding: 0 1em;
+    text-decoration: none;
+    font-size: 1.0rem;
+    color: blueviolet;
+    font-weight: bold;
+    /* border-right: 2px solid grey; */
+}
+
+main {
+    background-color: rgb(225, 233, 255);
+}
+
+footer {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2vw;
+    align-items: center;
+}
+
+#logo-ulht {
+    margin-left: 0.5vw;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+#span-horas {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* CONFIGURACOES MAIS ESPECIFICAS + CSS's personalizados */
+
+/* Um teste que quis implementar, mas não funciona... :(
+   Pretendia que só os List Items COM links, trocassem de icone ao passar o rato por cima. No entanto, nada acontece.
+   [PLANO B]: TODOS os ListItems alteram ícone, tenham link ou não. Funciona, mas não é como pretendia...
+*/
+/*
+    li:has(a):hover {
+        list-style-type: "👉  ";
+    }
+*/
+
+li:hover {
+    list-style-type: "👉  ";
+}
+
+#page-title {
+    /* coloca o titulo ligeiramente mais à frente, para nao ficar totalmente encostado à esquerda */
+    margin-left: 3vw;
+    font-size: 1.7rem;
+}
+
+.text-aligned-center {
+    /* estilização do tipo de letra*/
+    font-size: 3.5em;
+    color: black;
+    /* configurar alinhamento ao centro */
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 5%;
+}
+
+/* ESTILIZACAO DE BOTOES A UTILIZAR NAS PÁGINAS (nomeadamente para suportar operacoes CRUD */
+
+.btnSubmeterForm {
+    padding: 10px;
+    background-color: lightskyblue;
+    font-weight: bold;
+    font-size: 1.0em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btnInserir, #btnEditar, #btnCancelar, #btnEliminar {
+    text-decoration: none;
+    padding: 10px;
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+#btnInserir {
+    background-color: lightskyblue;
+}
+
+#btnEditar {
+    background-color: orange;
+}
+
+#btnCancelar {
+    background-color: orange;
+}
+
+#btnEliminar {
+    color: white;
+    background-color: red;
+    text-shadow: 2px 2px black;
+}
