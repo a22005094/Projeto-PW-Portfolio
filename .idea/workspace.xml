@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Commit com alterações finais" />
+    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Commit com alterações finais">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/sobre.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/sobre.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -214,6 +217,7 @@
       <workItem from="1659026016827" duration="1674000" />
       <workItem from="1659032320110" duration="6698000" />
       <workItem from="1659041350215" duration="4484000" />
+      <workItem from="1659047200175" duration="166000" />
     </task>
     <task id="LOCAL-00001" summary="adicionar a estrutura-base do projeto">
       <created>1658004280625</created>
