@@ -150,6 +150,25 @@
             }
         }
 
+        #list-pontos-fortes {
+            margin-left: 2vw;
+            list-style-type: '✅';
+        }
+
+        #list-pontos-fracos {
+            margin-left: 2vw;
+            list-style-type: '❌';
+        }
+
+        #list-idiomas {
+            margin-left: 2vw;
+            list-style-type: square;
+        }
+
+        li {
+            margin-bottom: 3vh;
+        }
+
         /* *** */
     </style>
 {% endblock %}
@@ -163,8 +182,9 @@
 
 {% block main %}
     <div class="texto-intro">
+        <h2>Formações</h2>
         <p>
-            Aqui terão hipótese de conhecer um pouco mais do meu percurso académico até hoje. 😎
+            Aqui terão hipótese de conhecer um pouco mais do meu percurso académico até hoje 📚🎓
         </p>
         <p>
             Tenho a felicidade de dizer que sinto orgulho das minhas decisões até agora, relativamente às
@@ -238,5 +258,86 @@
                 </div>
             {% endif %}
         {% endfor %}
+    </div>
+    <br>
+    <!-- Secção das Competências -->
+    <div class="texto-intro">
+        <h2>Aquilo que me destaca 😎</h2>
+        <p>
+            Durante todo este meu percurso e anos de vida, tive a sorte de ter a hipótese de aplicar a minha própria
+            maneira de ser, e estilo de trabalhar em conjunto com a minha formação.
+        </p>
+        <p>
+            Isto trouxe-me algumas vantagens (e desvantagens) sobre os meus métodos de trabalho, e de certa forma,
+            influenciou alguns traços na minha personalidade.
+        </p>
+        <br>
+        <h3>Pontos fortes:</h3>
+        <br>
+        <ul id="list-pontos-fortes">
+            <li>
+                Sou bastante dedicado e empenhado em <strong>tudo o que faço</strong>.
+            </li>
+            <li>
+                Procuro <strong>entender, logo de início, todo o domínio e de forma clara o que tenho por fazer</strong>,
+                para que possa logo de início coordenar todas as minhas eventuais tarefas a desempenhar,
+                evitando situações constrangedoras de "Afinal não entendi...", "Afinal, como era para fazer isto?", etc.
+            </li>
+            <li>
+                <strong>Espírito apurado de trabalho em equipa (<i>Team player</i>)</strong>:
+                Já desde criança, quando tive o meu primeiro contacto com videojogos, me foi incutido o princípio
+                que quando se trabalha em equipa, todos têm a ganhar se as tarefas forem claramente identificadas
+                entre os membros, e exista uma permanente (e saudável) coordenação, pelo melhor e sucesso dos objetivos
+                a atingir.
+            </li>
+            <li>
+                <strong>Elevado sentido de responsabilidade.</strong>
+            </li>
+            <li>
+                <strong>Integridade no trabalho (<i>Work Integrity</i>)</strong>:
+                Acredito que quando me confiam com uma tarefa por fazer, é porque confiam em mim e esperam
+                que o meu <i>output</i> não venha a desiludir o outro lado. Portanto, esforço-me para entregar
+                sempre o que me pedem, com "selo de qualidade" e reconhecimento de qualidade pela minha parte, dentro
+                das minhas condições e limitações possíveis (prazos, disponibilidade e competência técnica)
+            </li>
+            <li><strong>Perfecionismo</strong> (pode também ser visto pela negativa!)</li>
+        </ul>
+        <br>
+        <h3>Pontos fracos:</h3>
+        <br>
+        <ul id="list-pontos-fracos">
+            <li>
+                <strong>Perfecionismo</strong> (como referi, conta como ambos!)
+            </li>
+            <li>
+                O facto de me focar tanto com algo que tenho pendente por fazer, acabo por vezes em apenas
+                me focar nos fins (resultados), sem olhar aos meios para atingir os objetivos
+                (<i><strong>"tunnel-vision"</strong></i> a procurar resultados)
+            </li>
+            <li>
+                Posso-me tornar <strong>bastante teimoso</strong> (quando penso que tenho razão)... 😐
+            </li>
+        </ul>
+        <br>
+    </div>
+    <!-- Secção sobre idiomas falados -->
+    <div class="texto-intro">
+        <h2>Competências Linguísticas 🌍</h2>
+        <br>
+        <ul id="list-idiomas">
+            <li>
+                <strong>Português</strong> (nativa)
+            </li>
+            <li>
+                <strong>Inglês</strong> (proficiência C2)
+            </li>
+            <li>
+                <strong>Espanhol</strong> (proficiência A2)
+            </li>
+            <li>
+                <strong>Russo</strong> (apenas ler palavras... mas não as entendo 🤣)
+            </li>
+        </ul>
+        <br>
     </div>
 {% endblock %}
