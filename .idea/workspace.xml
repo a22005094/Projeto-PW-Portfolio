@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Adicionar a parte dos TFCs, que estava em falta">
+    <list default="true" id="79f64c57-4852-46b1-a984-54004733e174" name="Changes" comment="Adicionar dependencias para fazer hosting do projeto no Heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/templates/portfolio/layout.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,6 +213,7 @@
       <workItem from="1659018344114" duration="3109000" />
       <workItem from="1659021482397" duration="1628000" />
       <workItem from="1659023131489" duration="2753000" />
+      <workItem from="1659026016827" duration="769000" />
     </task>
     <task id="LOCAL-00001" summary="adicionar a estrutura-base do projeto">
       <created>1658004280625</created>
@@ -281,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659023812891</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Adicionar dependencias para fazer hosting do projeto no Heroku">
+      <created>1659026185276</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1659026185276</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +314,8 @@
     <MESSAGE value="Commit da página APIs que estava a faltar. Pequenas correcoes noutras páginas." />
     <MESSAGE value="Inserir novos conteúdos que havia esquecido" />
     <MESSAGE value="Adicionar a parte dos TFCs, que estava em falta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionar a parte dos TFCs, que estava em falta" />
+    <MESSAGE value="Adicionar dependencias para fazer hosting do projeto no Heroku" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionar dependencias para fazer hosting do projeto no Heroku" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
