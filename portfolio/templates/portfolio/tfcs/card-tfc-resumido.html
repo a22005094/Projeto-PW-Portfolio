@@ -1,0 +1,16 @@
+<div class="container-projeto-resumido">
+    <a href="{% url 'portfolio:ver-tfc' tfcView.pk %}">
+        <h2>{{ tfcView.titulo }}</h2>
+        <hr>
+        <p>
+            <strong>Autor(es): </strong>
+            {% for autor in tfcView.autores.all %}
+                {{ autor }}
+                <!-- Apresenta virgula entre os autores, enquanto nao for o ultimo -->
+                {% if autor != tfcView.autores.last %}
+                    ,
+                {% endif %}
+            {% endfor %}
+        </p>
+    </a>
+</div>

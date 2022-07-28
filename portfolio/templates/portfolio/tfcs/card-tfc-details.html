@@ -1,0 +1,72 @@
+<div class="container-tfc-details">
+    <div>
+        <h2 style="text-align: center">{{ tfcView.titulo }}</h2>
+        <hr>
+        <br>
+
+        <p>
+            <span>• Autores:</span>
+            {% for autor in tfcView.autores.all %}
+                {{ autor }}
+                <!-- Apresenta virgula entre os autores, enquanto nao for o ultimo -->
+                {% if autor != tfcView.autores.last %}
+                    ,
+                {% endif %}
+            {% endfor %}
+        </p>
+
+        <p>
+            <span>• Orientadores:</span>
+            {% for orientador in tfcView.orientadores.all %}
+                {{ orientador }}
+                <!-- Apresenta virgula entre os orientadores, enquanto nao for o ultimo -->
+                {% if orientador != tfcView.orientadores.last %}
+                    ,
+                {% endif %}
+            {% endfor %}
+        </p>
+
+        <p><span>• Ano de realização:</span> {{ tfcView.ano_realizado }}º</p>
+
+        <br>
+        <hr>
+        <p>
+            <span>• Sumário:</span> {{ tfcView.sumario }}
+        </p>
+        <hr>
+        <br>
+        <hr>
+        <p>
+            <span>• Resumo:</span> {{ tfcView.resumo }}
+        </p>
+        <hr>
+        <br>
+
+        <!-- Só apresenta os links, se foram preenchidos na inserção -->
+        {% if tfcView.link_github %}
+            <p>
+                <span>• </span>
+                <a href="{{ tfcView.link_github }}">Link Github</a>
+            </p>
+        {% else %}
+            <p>
+                <span>• </span>
+                <i>(Sem link do TFC no Github... 😢)</i>
+            </p>
+        {% endif %}
+
+        {% if tfcView.link_youtube %}
+            <p>
+                <span>• </span>
+                <a href="{{ tfcView.link_youtube }}">Link Youtube</a>
+            </p>
+        {% else %}
+            <p>
+                <span>• </span>
+                <i>(Sem link do Youtube... 😢)</i>
+            </p>
+        {% endif %}
+
+        <br>
+    </div>
+</div>
